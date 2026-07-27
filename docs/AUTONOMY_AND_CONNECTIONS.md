@@ -777,11 +777,18 @@ thin adapter boundary should allow the selected execution arrangement to change
 without rewriting the core Company behavior.
 
 The initial architecture decision should be made after a bounded spike using the
-same fake-provider draft scenario and evaluation fixtures. If Cobalt Wren adds no
-material operational value for that slice, LangGraph may be used directly. If it
-provides useful operational capabilities, the preferred arrangement is LangGraph
-for workflow semantics and Cobalt Wren as an outer execution, observability, and
-administration layer rather than Cobalt Native as the internal graph engine.
+same fake-provider draft scenario and evaluation fixtures. LangGraph is the
+preferred workflow-semantics candidate for that spike because the Company needs
+explicit graph state, parallel fan-out and join, interrupt and resume, and
+checkpoint behavior. Cobalt Native is not the preferred internal graph engine.
+
+The spike should compare LangGraph executed directly with LangGraph wrapped by
+Cobalt Wren. If Cobalt Wren adds no material operational value, LangGraph should
+be used directly. If it materially reduces Company-owned operational code and
+risk, the preferred arrangement is LangGraph for workflow semantics and Cobalt
+Wren as an outer execution, observability, audit, and administration layer.
+Cobalt Wren adoption is therefore conditional on measured value rather than a
+project constraint.
 
 ## 30B-class model operating assumptions
 
