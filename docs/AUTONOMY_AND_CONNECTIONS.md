@@ -453,7 +453,13 @@ the resulting consent and audit record identify exactly which operations were
 approved. The interface may also provide a select-all control for convenience,
 but using it must visibly select every affected item and must not collapse the
 items into one opaque aggregate permission. Users must still be able to deselect
-individual entries before final confirmation.
+individual entries before submission.
+
+Selecting all high-impact permissions does not trigger an additional confirmation
+step. The visible item selections and the normal service-enablement submission
+constitute the user's explicit approval. The interface must avoid hidden or
+pre-submission state changes so the submitted selection set matches what the user
+last saw.
 
 A persona may eventually request creation of a tool when no suitable tool
 exists, but the persona is not the trusted authority for activation. Generated
