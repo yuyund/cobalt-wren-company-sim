@@ -448,6 +448,13 @@ administrative, security-sensitive, or broad external communication require an
 additional explicit acknowledgement or selection before activation. The policy
 system, not the persona, determines whether a candidate falls into this class.
 
+Each high-impact permission should be listed as a separate explicit selection so
+the resulting consent and audit record identify exactly which operations were
+approved. The interface may also provide a select-all control for convenience,
+but using it must visibly select every affected item and must not collapse the
+items into one opaque aggregate permission. Users must still be able to deselect
+individual entries before final confirmation.
+
 A persona may eventually request creation of a tool when no suitable tool
 exists, but the persona is not the trusted authority for activation. Generated
 artifacts must pass deterministic platform validation before they can be used.
