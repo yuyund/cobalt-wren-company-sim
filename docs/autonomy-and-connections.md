@@ -17,11 +17,11 @@ This is the entry point for the normative requirements that were previously stor
 
 ## Requirement documents
 
-- [Autonomy, Permissions, and Review](autonomy-permissions-review.md)
-- [Connections and Tool Packages](connections-and-tool-packages.md)
-- [High-impact Permissions and Tool Package Lifecycle](high-impact-permissions-and-package-lifecycle.md)
-- [Observability, Knowledge, and Retention](observability-knowledge-retention.md)
-- [Architecture, Model, and Evaluation](architecture-model-and-evaluation.md)
+- [Autonomy, Permissions, and Review](requirements/autonomy-permissions-review.md)
+- [Connections and Tool Packages](requirements/connections-and-tool-packages.md)
+- [High-impact Permissions and Tool Package Lifecycle](requirements/high-impact-permissions-and-package-lifecycle.md)
+- [Observability, Knowledge, and Retention](requirements/observability-knowledge-retention.md)
+- [Architecture, Model, and Evaluation](requirements/architecture-model-and-evaluation.md)
 
 ## Open questions
 

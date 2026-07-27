@@ -2,51 +2,37 @@
 
 # Mechanical Log: docs
 
-## `docs/AUTONOMY_AND_CONNECTIONS.md`
+## `docs/autonomy-and-connections.md`
 
-- Change: `deleted`
+- Change: `modified`
+- Changed sections:
+  - `Autonomy and Connections Requirements`: lines 14-36
+  - `Requirement documents`: lines 18-25
+- Changed lines: `20-24`
 
-## `docs/architecture-model-and-evaluation.md`
+## `docs/implementation-handoff.md`
 
-- Change: `added`
+- Change: `modified`
+- Changed sections:
+  - `Implementation Handoff`: lines 14-469
+  - `Source-of-truth map`: lines 458-469
+- Changed lines: `461-464`
+
+## `docs/requirements/architecture-model-and-evaluation.md`
+
+- Change: `renamed`
+- Previous path: `docs/architecture-model-and-evaluation.md`
 - Changed sections:
   - `Architecture, Model, and Evaluation`: lines 14-367
   - `Vertical-slice architecture principles`: lines 18-115
   - `30B-class model operating assumptions`: lines 116-292
   - `Initial model profiles and release gates`: lines 293-367
-- Changed lines: `1-364`
+- Changed lines: `1-367`
 
-## `docs/architecture.md`
+## `docs/requirements/autonomy-permissions-review.md`
 
 - Change: `renamed`
-- Previous path: `docs/ARCHITECTURE.md`
-- Changed sections:
-  - `Architecture`: lines 14-149
-  - `Purpose`: lines 16-26
-  - `Proven prototype`: lines 27-56
-  - `Target boundaries`: lines 57-125
-  - `Company domain`: lines 83-89
-  - `Workflow implementation`: lines 90-96
-  - `Operations integration`: lines 97-105
-  - `Cognition and model serving`: lines 106-112
-  - `Connections and Tool Packages`: lines 113-119
-  - `Knowledge and evidence`: lines 120-125
-  - `First slice`: lines 126-136
-  - `Safety and convergence`: lines 137-149
-- Changed lines: `1-149`
-
-## `docs/autonomy-and-connections.md`
-
-- Change: `added`
-- Changed sections:
-  - `Autonomy and Connections Requirements`: lines 14-36
-  - `Requirement documents`: lines 18-25
-  - `Open questions`: lines 26-36
-- Changed lines: `1-33`
-
-## `docs/autonomy-permissions-review.md`
-
-- Change: `added`
+- Previous path: `docs/autonomy-permissions-review.md`
 - Changed sections:
   - `Autonomy, Permissions, and Review`: lines 14-205
   - `Status`: lines 18-23
@@ -57,11 +43,12 @@
   - `Review evidence and independence`: lines 146-168
   - `Human decision after revision exhaustion`: lines 169-179
   - `Rejection behavior`: lines 180-205
-- Changed lines: `1-202`
+- Changed lines: `1-205`
 
-## `docs/connections-and-tool-packages.md`
+## `docs/requirements/connections-and-tool-packages.md`
 
-- Change: `added`
+- Change: `renamed`
+- Previous path: `docs/connections-and-tool-packages.md`
 - Changed sections:
   - `Connections and Tool Packages`: lines 14-303
   - `Connections and credentials`: lines 18-63
@@ -69,60 +56,24 @@
   - `Permission awareness and administration`: lines 89-117
   - `Dynamic tool creation and connection requirements`: lines 118-187
   - `Browser-assisted service enablement`: lines 188-303
-- Changed lines: `1-300`
+- Changed lines: `1-303`
 
-## `docs/high-impact-permissions-and-package-lifecycle.md`
+## `docs/requirements/high-impact-permissions-and-package-lifecycle.md`
 
-- Change: `added`
+- Change: `renamed`
+- Previous path: `docs/high-impact-permissions-and-package-lifecycle.md`
 - Changed sections:
   - `High-impact Permissions and Tool Package Lifecycle`: lines 14-129
   - `Explicit high-impact selection and completion details`: lines 18-129
-- Changed lines: `1-126`
+- Changed lines: `1-129`
 
-## `docs/implementation-handoff.md`
+## `docs/requirements/observability-knowledge-retention.md`
 
-- Change: `modified`
-- Changed sections:
-  - `Implementation Handoff`: lines 14-468
-  - `Purpose`: lines 16-28
-  - `Confirmed autonomy and permission requirements`: lines 66-109
-  - `Review and human escalation`: lines 95-109
-  - `Documentation contract status`: lines 451-457
-  - `Source-of-truth map`: lines 458-468
-- Changed lines: `26, 108, 451-457, 461-466`
-
-## `docs/observability-knowledge-retention.md`
-
-- Change: `added`
+- Change: `renamed`
+- Previous path: `docs/observability-knowledge-retention.md`
 - Changed sections:
   - `Observability, Knowledge, and Retention`: lines 14-108
   - `Observability requirements`: lines 18-42
   - `Organizational knowledge boundaries`: lines 43-83
   - `Retention and evidence lifecycle`: lines 84-108
-- Changed lines: `1-105`
-
-## `docs/resume-plan.md`
-
-- Change: `renamed`
-- Previous path: `docs/RESUME_PLAN.md`
-- Changed sections:
-  - `Resume Plan`: lines 14-89
-  - `Start here`: lines 16-28
-  - `Proven state`: lines 29-40
-  - `Immediate implementation sequence`: lines 41-60
-  - `Do not do first`: lines 61-70
-  - `First decisions still required`: lines 71-80
-  - `Validation before each handoff`: lines 81-89
-- Changed lines: `1-89`
-
-## `docs/scope-and-non-goals.md`
-
-- Change: `renamed`
-- Previous path: `docs/SCOPE_AND_NON_GOALS.md`
-- Changed sections:
-  - `Scope and Non-goals`: lines 14-69
-  - `Existing prototype scope`: lines 16-26
-  - `Next vertical-slice scope`: lines 27-41
-  - `Explicit non-goals for the first slice`: lines 42-59
-  - `Deferred capabilities`: lines 60-69
-- Changed lines: `1-69`
+- Changed lines: `1-108`

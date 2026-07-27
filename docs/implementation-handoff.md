@@ -458,9 +458,10 @@ committed; bypassing the contract is not an accepted workflow.
 ## Source-of-truth map
 
 - This document: cross-cutting handoff, current position, and implementation order
-- `autonomy-and-connections.md`: overview and links to the split normative
-  requirements for autonomy, Connections, browser enablement, knowledge,
-  architecture, models, optimization, and evaluation
+- `autonomy-and-connections.md`: overview of the normative requirements
+- `requirements/`: split normative specifications for autonomy, Connections,
+  browser enablement, package lifecycle, knowledge, architecture, models,
+  optimization, and evaluation
 - `architecture.md`: concise current/proposed architecture and boundaries
 - `scope-and-non-goals.md`: current implementation scope and deferred areas
 - `resume-plan.md`: immediate restart checklist

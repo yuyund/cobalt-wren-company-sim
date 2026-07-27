@@ -4,21 +4,14 @@
 
 ## Summary
 
-- Concepts: 10
-- Child directories: 0
+- Concepts: 5
+- Child directories: 1
+
+## Directories
+
+- `requirements/`
 
 ## Documents
-
-### [Architecture, Model, and Evaluation](architecture-model-and-evaluation.md)
-
-- Path: `architecture-model-and-evaluation.md`
-- Type: `reference`
-- Review due: `2026-08-10`
-- Sections:
-  - `Architecture, Model, and Evaluation`: lines 14-367
-  - `Vertical-slice architecture principles`: lines 18-115
-  - `30B-class model operating assumptions`: lines 116-292
-  - `Initial model profiles and release gates`: lines 293-367
 
 ### [Architecture](architecture.md)
 
@@ -49,51 +42,13 @@
   - `Requirement documents`: lines 18-25
   - `Open questions`: lines 26-36
 
-### [Autonomy, Permissions, and Review](autonomy-permissions-review.md)
-
-- Path: `autonomy-permissions-review.md`
-- Type: `reference`
-- Review due: `2026-08-10`
-- Sections:
-  - `Autonomy, Permissions, and Review`: lines 14-205
-  - `Status`: lines 18-23
-  - `Autonomy model`: lines 24-57
-  - `Permission scope`: lines 58-98
-  - `Persona and internal agents`: lines 99-125
-  - `Execution and review separation`: lines 126-145
-  - `Review evidence and independence`: lines 146-168
-  - `Human decision after revision exhaustion`: lines 169-179
-  - `Rejection behavior`: lines 180-205
-
-### [Connections and Tool Packages](connections-and-tool-packages.md)
-
-- Path: `connections-and-tool-packages.md`
-- Type: `reference`
-- Review due: `2026-08-10`
-- Sections:
-  - `Connections and Tool Packages`: lines 14-303
-  - `Connections and credentials`: lines 18-63
-  - `Provider-defined capability bundles`: lines 64-88
-  - `Permission awareness and administration`: lines 89-117
-  - `Dynamic tool creation and connection requirements`: lines 118-187
-  - `Browser-assisted service enablement`: lines 188-303
-
-### [High-impact Permissions and Tool Package Lifecycle](high-impact-permissions-and-package-lifecycle.md)
-
-- Path: `high-impact-permissions-and-package-lifecycle.md`
-- Type: `reference`
-- Review due: `2026-08-10`
-- Sections:
-  - `High-impact Permissions and Tool Package Lifecycle`: lines 14-129
-  - `Explicit high-impact selection and completion details`: lines 18-129
-
 ### [Implementation Handoff](implementation-handoff.md)
 
 - Path: `implementation-handoff.md`
 - Type: `guide`
 - Review due: `2026-08-10`
 - Sections:
-  - `Implementation Handoff`: lines 14-468
+  - `Implementation Handoff`: lines 14-469
   - `Purpose`: lines 16-28
   - `Current position`: lines 29-51
   - `Product direction`: lines 52-65
@@ -125,18 +80,7 @@
   - `Explicitly unresolved`: lines 413-430
   - `Working preferences and decision rules`: lines 431-450
   - `Documentation contract status`: lines 451-457
-  - `Source-of-truth map`: lines 458-468
-
-### [Observability, Knowledge, and Retention](observability-knowledge-retention.md)
-
-- Path: `observability-knowledge-retention.md`
-- Type: `reference`
-- Review due: `2026-08-10`
-- Sections:
-  - `Observability, Knowledge, and Retention`: lines 14-108
-  - `Observability requirements`: lines 18-42
-  - `Organizational knowledge boundaries`: lines 43-83
-  - `Retention and evidence lifecycle`: lines 84-108
+  - `Source-of-truth map`: lines 458-469
 
 ### [Resume Plan](resume-plan.md)
 
