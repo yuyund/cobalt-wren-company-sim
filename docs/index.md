@@ -4,7 +4,7 @@
 
 ## Summary
 
-- Concepts: 4
+- Concepts: 5
 - Child directories: 0
 
 ## Documents
@@ -13,20 +13,20 @@
 
 - Path: `ARCHITECTURE.md`
 - Type: `reference`
-- Review due: `2026-10-25`
+- Review due: `2026-08-10`
 - Sections:
-  - `Architecture`: lines 11-104
-  - `Purpose`: lines 13-23
-  - `Current model`: lines 24-48
-  - `Core boundaries`: lines 49-89
-  - `Company orchestration`: lines 51-55
-  - `Department persona`: lines 56-60
-  - `Internal hierarchy`: lines 61-68
-  - `Cognition backend`: lines 69-77
-  - `Message bus`: lines 78-83
-  - `Cobalt Wren workflow`: lines 84-89
-  - `Planned autonomy boundary`: lines 90-96
-  - `Safety and convergence constraints`: lines 97-104
+  - `Architecture`: lines 14-149
+  - `Purpose`: lines 16-26
+  - `Proven prototype`: lines 27-56
+  - `Target boundaries`: lines 57-125
+  - `Company domain`: lines 83-89
+  - `Workflow implementation`: lines 90-96
+  - `Operations integration`: lines 97-105
+  - `Cognition and model serving`: lines 106-112
+  - `Connections and Tool Packages`: lines 113-119
+  - `Knowledge and evidence`: lines 120-125
+  - `First slice`: lines 126-136
+  - `Safety and convergence`: lines 137-149
 
 ### [Autonomy, Permissions, Review, and Connections](AUTONOMY_AND_CONNECTIONS.md)
 
@@ -34,46 +34,89 @@
 - Type: `reference`
 - Review due: `2026-10-25`
 - Sections:
-  - `Autonomy, Permissions, Review, and Connections`: lines 11-1067
-  - `Status`: lines 13-19
-  - `Autonomy model`: lines 20-54
-  - `Permission scope`: lines 55-96
-  - `Persona and internal agents`: lines 97-124
-  - `Execution and review separation`: lines 125-145
-  - `Review evidence and independence`: lines 146-169
-  - `Human decision after revision exhaustion`: lines 170-181
-  - `Rejection behavior`: lines 182-208
-  - `Connections and credentials`: lines 209-255
-  - `Provider-defined capability bundles`: lines 256-281
-  - `Permission awareness and administration`: lines 282-311
-  - `Dynamic tool creation and connection requirements`: lines 312-381
-  - `Browser-assisted service enablement`: lines 382-609
-  - `Observability requirements`: lines 610-635
-  - `Organizational knowledge boundaries`: lines 636-677
-  - `Retention and evidence lifecycle`: lines 678-703
-  - `Vertical-slice architecture principles`: lines 704-802
-  - `30B-class model operating assumptions`: lines 803-980
-  - `Initial model profiles and release gates`: lines 981-1056
-  - `Open questions`: lines 1057-1067
+  - `Autonomy, Permissions, Review, and Connections`: lines 14-1070
+  - `Status`: lines 16-22
+  - `Autonomy model`: lines 23-57
+  - `Permission scope`: lines 58-99
+  - `Persona and internal agents`: lines 100-127
+  - `Execution and review separation`: lines 128-148
+  - `Review evidence and independence`: lines 149-172
+  - `Human decision after revision exhaustion`: lines 173-184
+  - `Rejection behavior`: lines 185-211
+  - `Connections and credentials`: lines 212-258
+  - `Provider-defined capability bundles`: lines 259-284
+  - `Permission awareness and administration`: lines 285-314
+  - `Dynamic tool creation and connection requirements`: lines 315-384
+  - `Browser-assisted service enablement`: lines 385-612
+  - `Observability requirements`: lines 613-638
+  - `Organizational knowledge boundaries`: lines 639-680
+  - `Retention and evidence lifecycle`: lines 681-706
+  - `Vertical-slice architecture principles`: lines 707-805
+  - `30B-class model operating assumptions`: lines 806-983
+  - `Initial model profiles and release gates`: lines 984-1059
+  - `Open questions`: lines 1060-1070
 
 ### [Resume Plan](RESUME_PLAN.md)
 
 - Path: `RESUME_PLAN.md`
 - Type: `reference`
-- Review due: `2026-10-25`
+- Review due: `2026-08-10`
 - Sections:
-  - `Resume Plan`: lines 11-41
-  - `Proven state`: lines 15-25
-  - `Recommended restart order`: lines 26-36
-  - `Dependency policy`: lines 37-41
+  - `Resume Plan`: lines 14-89
+  - `Start here`: lines 16-28
+  - `Proven state`: lines 29-40
+  - `Immediate implementation sequence`: lines 41-60
+  - `Do not do first`: lines 61-70
+  - `First decisions still required`: lines 71-80
+  - `Validation before each handoff`: lines 81-89
 
 ### [Scope and Non-goals](SCOPE_AND_NON_GOALS.md)
 
 - Path: `SCOPE_AND_NON_GOALS.md`
 - Type: `reference`
-- Review due: `2026-10-25`
+- Review due: `2026-08-10`
 - Sections:
-  - `Scope and Non-goals`: lines 11-46
-  - `Current scope`: lines 13-23
-  - `Explicit non-goals for the current prototype`: lines 24-35
-  - `Deferred capabilities`: lines 36-46
+  - `Scope and Non-goals`: lines 14-69
+  - `Existing prototype scope`: lines 16-26
+  - `Next vertical-slice scope`: lines 27-41
+  - `Explicit non-goals for the first slice`: lines 42-59
+  - `Deferred capabilities`: lines 60-69
+
+### [Implementation Handoff](implementation-handoff.md)
+
+- Path: `implementation-handoff.md`
+- Type: `guide`
+- Review due: `2026-08-10`
+- Sections:
+  - `Implementation Handoff`: lines 14-461
+  - `Purpose`: lines 16-28
+  - `Current position`: lines 29-51
+  - `Product direction`: lines 52-65
+  - `Confirmed autonomy and permission requirements`: lines 66-109
+  - `Persona authority`: lines 68-78
+  - `Internal agents`: lines 79-94
+  - `Review and human escalation`: lines 95-109
+  - `Connections, tools, and credentials`: lines 110-145
+  - `Connections`: lines 112-122
+  - `Tool Packages`: lines 123-137
+  - `Browser-assisted setup`: lines 138-145
+  - `Organizational knowledge`: lines 146-171
+  - `Workflow-engine decision`: lines 172-214
+  - `Current priority`: lines 174-188
+  - `Cobalt Wren adoption is conditional`: lines 189-214
+  - `First vertical slice`: lines 215-243
+  - `Stage 1: deterministic fake provider`: lines 219-236
+  - `Stage 2: Gmail draft`: lines 237-243
+  - `Initial domain contracts`: lines 244-266
+  - `30B-class model baseline`: lines 267-324
+  - `Initial role parameters`: lines 284-307
+  - `Context budget`: lines 308-324
+  - `Evaluation and release gates`: lines 325-364
+  - `Protected safety gates`: lines 332-344
+  - `Initial quality targets`: lines 345-356
+  - `Performance and promotion`: lines 357-364
+  - `Runtime-profile optimization`: lines 365-391
+  - `Recommended implementation order`: lines 392-412
+  - `Explicitly unresolved`: lines 413-430
+  - `Working preferences and decision rules`: lines 431-450
+  - `Source-of-truth map`: lines 451-461

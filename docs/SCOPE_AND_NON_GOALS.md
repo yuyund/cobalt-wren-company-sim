@@ -2,45 +2,68 @@
 title: Scope and Non-goals
 type: reference
 status: current
+owner: repository-maintainers
 created_at: '2026-07-27'
 updated_at: '2026-07-27'
 review:
-  due_at: '2026-10-25'
+  due_at: '2026-08-10'
+validity:
+  due_at: '2027-07-27'
 ---
 
 # Scope and Non-goals
 
-## Current scope
+## Existing prototype scope
 
-- department-level personas
-- hierarchical internal agents
-- chat-style interdepartmental handoffs
+- department-level Personas
+- Strategy, Analysis, and Execution internal roles
+- bounded chat-style interdepartmental handoffs
 - external customer and user actor types
 - deterministic routing and completion
 - structured transcript and department decisions
-- Cobalt Wren Native workflow integration
 - replaceable cognition backend contract
+- CLI and Cobalt Wren Native wrapper paths
 
-## Explicit non-goals for the current prototype
+## Next vertical-slice scope
 
+- application-owned versioned domain contracts
+- Support Persona customer-response draft scenario
+- deterministic fake Connection, Tool Package, provider, policy, clock, and
+  cognition fixtures
+- typed `ToolIntent`, Review, permission, knowledge, evidence, execution, and audit
+- least-privileged Persona grants and persistent prohibitions
+- redacted evidence and reproducible execution records
+- LangGraph direct implementation with bounded parallel/join fixtures
+- direct-LangGraph versus Cobalt-Wren-wrapped comparison
+- Qwen-family dense versus MoE 30B-class baseline
+- real Gmail draft Connection after the fake path is stable
+- CI and explicit-developer runtime-profile optimization
+
+## Explicit non-goals for the first slice
+
+- sending email rather than creating a draft
 - autonomous legal or contractual commitments
 - autonomous financial approval or purchasing
 - autonomous security exceptions
-- production-grade company or customer data retention
-- unrestricted self-modification
+- unrestricted self-modification or self-activation
+- optimizer ownership of safety policy
+- production-trace-driven continuous optimization
+- production-grade universal company-data retention
 - unbounded agent conversation
-- model-provider installation managed by Cobalt Wren
+- model-provider installation owned by Cobalt Wren
+- LangGraph or Cobalt Wren types as Company domain APIs
 - universal mapping of every organization structure
 - realistic human psychology simulation
+- cross-Company or public Tool Package distribution
+- universal ingestion of service documentation without formal schemas
 
 ## Deferred capabilities
 
-- persistent organizational memory
-- customer and account history
-- policy and procedure retrieval
-- approval gates and escalation
-- concurrent department work
-- conflict and objection resolution
-- pluggable LLM backends
-- semantic observability projections
-- human intervention only at policy thresholds
+- detailed jurisdiction-specific retention windows
+- advanced knowledge promotion, declassification, and cross-scope aggregation
+- provider-specific partial Connection reactivation
+- public package signing, trust, revocation, and distribution
+- full customer/account history and production organizational memory
+- autonomous profile rollout from production traces
+- distributed workflow execution beyond the first measured need
+- broader external-service operations beyond Gmail draft

@@ -2,26 +2,31 @@
 title: Architecture
 type: reference
 status: current
+owner: repository-maintainers
 created_at: '2026-07-27'
 updated_at: '2026-07-27'
 review:
-  due_at: '2026-10-25'
+  due_at: '2026-08-10'
+validity:
+  due_at: '2027-07-27'
 ---
 
 # Architecture
 
 ## Purpose
 
-This repository is a reference application for modeling a company as a set of
-department-level personas. Each department owns a hierarchy of internal agents
-and communicates with other departments through a bounded chat-style message
-bus.
+This repository is a reference application and proving ground for a Company
+system composed of department-level Personas and bounded internal agents. The
+current code is a deterministic prototype; the next slice establishes the stable
+contracts for permission-constrained autonomy, external Connections, Review,
+organizational knowledge, and observable tool execution.
 
-The system is intentionally separate from Cobalt Wren. It consumes Cobalt Wren
-as an application dependency and is used to validate public workflow contracts,
-Native authoring, observability boundaries, and package installation behavior.
+The Company domain must remain independent of any workflow engine, model SDK, or
+operations framework.
 
-## Current model
+## Proven prototype
+
+The current code models:
 
 ```text
 External Customer / User
@@ -39,66 +44,106 @@ External Customer / User
  Other Department Personas
 ```
 
-The current deterministic journey is:
+The fixed deterministic journey is:
 
 ```text
 Customer -> Sales -> Product -> Engineering -> Operations -> Support -> Customer
                  `-> Executive visibility
 ```
 
-## Core boundaries
+This path proves bounded routing and correlation, not the target dynamic workflow
+architecture.
 
-### Company orchestration
+## Target boundaries
 
-`CompanySimulation` owns bounded message processing, department lookup,
-correlation, completion detection, and the final result.
+```text
+Company domain contracts
+  |- Persona and internal roles
+  |- Goal and WorkRequest
+  |- Permission and prohibition
+  |- ReviewDecision
+  |- Connection and ToolPackage references
+  |- KnowledgeContext and EvidenceRef
+  |- ToolIntent and ExecutionResult
+  `- AuditRecord and RuntimeProfileRef
+              |
+              v
+      Application workflow port
+              |
+              v
+       LangGraph implementation
+              |
+              v
+ Optional Cobalt Wren operations wrapper
+              |
+              v
+ Providers, stores, tools, and external services
+```
 
-### Department persona
+### Company domain
 
-A `DepartmentPersona` owns a stable mandate, its internal hierarchy, and its
-handoff policy. It does not own transport, persistence, or model SDK setup.
+The domain owns goals, Personas, authority, policy decisions, Review, knowledge
+boundaries, executable intents, evidence references, audit semantics, correlation,
+idempotency, and version identity. It does not expose LangGraph or Cobalt Wren
+types.
 
-### Internal hierarchy
+### Workflow implementation
 
-Each department currently has three internal roles:
+LangGraph is the preferred workflow-semantics candidate for the first spike. It
+is responsible for graph state transport, fan-out/join, interrupt/resume, and
+checkpoint-aware control flow. LangGraph state transports domain objects and is
+not their source of truth.
 
-- strategy: interprets intent and mandate alignment
-- analysis: identifies constraints and risks
-- execution: chooses a bounded next action
+### Operations integration
 
-### Cognition backend
+Cobalt Wren is conditional. Compare direct LangGraph with LangGraph wrapped by
+Cobalt Wren. Retain Cobalt Wren only if its run administration, observability,
+audit, cancellation, retry, resume, checkpoint, artifact, secret, and projection
+capabilities materially reduce Company-owned code and risk.
 
-`CognitionBackend` is the model boundary. The default implementation is
-`RuleBasedCognition`, which is deterministic and requires no LLM SDK.
+Cobalt Wren Native is not the preferred internal graph engine.
 
-Future LLM implementations belong in this consuming repository or another
-application package. Cobalt Wren supplies contracts and observation helpers; it
-does not own provider installation or version policy.
+### Cognition and model serving
 
-### Message bus
+An application-owned LLM client is the only model boundary. Domain and graph code
+must not import provider SDKs. The first baseline compares dense and MoE
+Qwen-family 30B-class profiles behind a thin compatible adapter. Serving-engine
+selection remains open.
 
-Messages carry a correlation ID, sender, recipient, actor kind, hop count,
-content, and metadata. Original customer intent is retained in metadata so
-handoffs remain bounded rather than recursively quoting the entire transcript.
+### Connections and Tool Packages
 
-### Cobalt Wren workflow
+Connections are user-owned credential-bearing resources. Tool Packages are typed,
+versioned operational interfaces. Connection existence, Persona grant,
+operation/target permission, Review, and contextual policy are separate gates.
+Credentials never enter model context or durable knowledge.
 
-`company_sim.workflow:simulate_company` exposes the simulation as a Cobalt Wren
-Native workflow. The workflow records progress and metrics while the company
-domain remains independent of Cobalt Wren internals.
+### Knowledge and evidence
 
-## Planned autonomy boundary
+A deterministic resolver selects the smallest relevant Knowledge Context under a
+bounded budget. Raw evidence and durable organizational knowledge have separate
+lifecycles and preserve provenance and scope boundaries.
 
-The agreed direction for permissions, review, external Connections, credential
-isolation, rejection handling, and tool-call observability is recorded in
-[`AUTONOMY_AND_CONNECTIONS.md`](AUTONOMY_AND_CONNECTIONS.md). These are planned
-contracts rather than claims about the current prototype.
+## First slice
 
-## Safety and convergence constraints
+The first production-shaped slice is Support Persona draft creation:
 
-- bounded maximum hop count
-- bounded maximum processing rounds
-- short department handoff summaries
-- explicit terminal customer response
-- deterministic default cognition backend
-- no financial, legal, security, or external commitment authority
+1. run through a deterministic fake provider
+2. validate the same contracts with a real Gmail draft Connection
+
+It must prove typed `ToolIntent`, permission resolution, Review revision,
+idempotent execution, redacted evidence, audit, failure/retry/cancel behavior,
+and a framework comparison using the same fixtures.
+
+## Safety and convergence
+
+- unknown schemas and versions fail closed
+- executable output is typed and platform-validated
+- permission and secret handling are deterministic
+- Review/revision is limited to three cycles
+- model repair is limited to two attempts
+- protected safety cases require 100 percent success
+- graph branches and joins are bounded and deterministic
+- every run records complete runtime-profile and contract versions
+
+See [`AUTONOMY_AND_CONNECTIONS.md`](AUTONOMY_AND_CONNECTIONS.md) for normative
+detail and [`implementation-handoff.md`](implementation-handoff.md) for the current implementation plan.

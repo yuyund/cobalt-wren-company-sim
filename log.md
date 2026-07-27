@@ -5,24 +5,88 @@
 ## `README.md`
 
 - Change: `modified`
-- Changed lines: `1-10`
+- Changed sections:
+  - `Cobalt Wren Company Simulation`: lines 14-104
+  - `Current scope`: lines 78-87
+  - `Design handoff`: lines 88-97
+- Changed lines: `85-94`
 
 ## `docs/ARCHITECTURE.md`
 
 - Change: `modified`
-- Changed lines: `1-10`
-
-## `docs/AUTONOMY_AND_CONNECTIONS.md`
-
-- Change: `modified`
-- Changed lines: `1-10`
+- Changed sections:
+  - `Architecture`: lines 14-149
+  - `Purpose`: lines 16-26
+  - `Proven prototype`: lines 27-56
+  - `Target boundaries`: lines 57-125
+  - `Company domain`: lines 83-89
+  - `Workflow implementation`: lines 90-96
+  - `Operations integration`: lines 97-105
+  - `Cognition and model serving`: lines 106-112
+  - `Connections and Tool Packages`: lines 113-119
+  - `Knowledge and evidence`: lines 120-125
+  - `First slice`: lines 126-136
+  - `Safety and convergence`: lines 137-149
+- Changed lines: `8, 15-19, 21-22, 24-26, 44, 51-85, 87, 89-92, 94, 96-99, 101, 103, 105-108, 110, 112-115, 117, 119-121, 123, 125, 127-128, 130-132, 134, 136-143, 145-146`
 
 ## `docs/RESUME_PLAN.md`
 
 - Change: `modified`
-- Changed lines: `1-10`
+- Changed sections:
+  - `Resume Plan`: lines 14-89
+  - `Start here`: lines 16-28
+  - `Proven state`: lines 29-40
+  - `Immediate implementation sequence`: lines 41-60
+  - `Do not do first`: lines 61-70
+  - `First decisions still required`: lines 71-80
+  - `Validation before each handoff`: lines 81-89
+- Changed lines: `8, 13-24, 28-86`
 
 ## `docs/SCOPE_AND_NON_GOALS.md`
 
 - Change: `modified`
-- Changed lines: `1-10`
+- Changed sections:
+  - `Scope and Non-goals`: lines 14-69
+  - `Existing prototype scope`: lines 16-26
+  - `Next vertical-slice scope`: lines 27-41
+  - `Explicit non-goals for the first slice`: lines 42-59
+  - `Deferred capabilities`: lines 60-69
+- Changed lines: `8, 13, 15-17, 20, 22, 24, 26-41, 45-48, 50-51, 54-55, 59-66`
+
+## `docs/implementation-handoff.md`
+
+- Change: `added`
+- Changed sections:
+  - `Implementation Handoff`: lines 14-461
+  - `Purpose`: lines 16-28
+  - `Current position`: lines 29-51
+  - `Product direction`: lines 52-65
+  - `Confirmed autonomy and permission requirements`: lines 66-109
+  - `Persona authority`: lines 68-78
+  - `Internal agents`: lines 79-94
+  - `Review and human escalation`: lines 95-109
+  - `Connections, tools, and credentials`: lines 110-145
+  - `Connections`: lines 112-122
+  - `Tool Packages`: lines 123-137
+  - `Browser-assisted setup`: lines 138-145
+  - `Organizational knowledge`: lines 146-171
+  - `Workflow-engine decision`: lines 172-214
+  - `Current priority`: lines 174-188
+  - `Cobalt Wren adoption is conditional`: lines 189-214
+  - `First vertical slice`: lines 215-243
+  - `Stage 1: deterministic fake provider`: lines 219-236
+  - `Stage 2: Gmail draft`: lines 237-243
+  - `Initial domain contracts`: lines 244-266
+  - `30B-class model baseline`: lines 267-324
+  - `Initial role parameters`: lines 284-307
+  - `Context budget`: lines 308-324
+  - `Evaluation and release gates`: lines 325-364
+  - `Protected safety gates`: lines 332-344
+  - `Initial quality targets`: lines 345-356
+  - `Performance and promotion`: lines 357-364
+  - `Runtime-profile optimization`: lines 365-391
+  - `Recommended implementation order`: lines 392-412
+  - `Explicitly unresolved`: lines 413-430
+  - `Working preferences and decision rules`: lines 431-450
+  - `Source-of-truth map`: lines 451-461
+- Changed lines: `1-458`

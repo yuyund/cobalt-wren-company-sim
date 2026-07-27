@@ -2,10 +2,13 @@
 title: Autonomy, Permissions, Review, and Connections
 type: reference
 status: current
+owner: repository-maintainers
 created_at: '2026-07-27'
 updated_at: '2026-07-27'
 review:
   due_at: '2026-10-25'
+validity:
+  due_at: '2027-07-27'
 ---
 
 # Autonomy, Permissions, Review, and Connections

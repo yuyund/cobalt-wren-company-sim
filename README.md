@@ -2,10 +2,13 @@
 title: Cobalt Wren Company Simulation
 type: guide
 status: current
+owner: repository-maintainers
 created_at: '2026-07-27'
 updated_at: '2026-07-27'
 review:
   due_at: '2027-01-23'
+validity:
+  due_at: '2027-07-27'
 ---
 
 # Cobalt Wren Company Simulation
@@ -81,6 +84,16 @@ cobalt-wren native-run company_sim.workflow:simulate_company \
 - customer and user actor types
 - structured transcript and department decisions
 - Cobalt Wren Native workflow wrapper
+
+## Design handoff
+
+The current implementation remains a deterministic prototype. The agreed next
+architecture, autonomy rules, LangGraph/Cobalt Wren comparison, Qwen-family model
+baseline, evaluation gates, and implementation order are documented in
+[`docs/implementation-handoff.md`](docs/implementation-handoff.md).
+
+Normative detail is in
+[`docs/AUTONOMY_AND_CONNECTIONS.md`](docs/AUTONOMY_AND_CONNECTIONS.md).
 
 ## Next steps
 

@@ -19,9 +19,10 @@
 - Type: `guide`
 - Review due: `2027-01-23`
 - Sections:
-  - `Cobalt Wren Company Simulation`: lines 11-91
-  - `Model`: lines 21-47
-  - `Install from TestPyPI`: lines 48-59
-  - `Run`: lines 60-74
-  - `Current scope`: lines 75-84
-  - `Next steps`: lines 85-91
+  - `Cobalt Wren Company Simulation`: lines 14-104
+  - `Model`: lines 24-50
+  - `Install from TestPyPI`: lines 51-62
+  - `Run`: lines 63-77
+  - `Current scope`: lines 78-87
+  - `Design handoff`: lines 88-97
+  - `Next steps`: lines 98-104
