@@ -488,6 +488,23 @@ artifacts must pass deterministic platform validation before they can be used.
 A created tool must declare its required Connection schema rather than
 requesting secrets through ordinary conversation.
 
+Validated Tool Package definitions are reusable shared assets. They may be
+registered once and used by multiple personas without regenerating or retesting
+the same version. Reuse covers tool code, operation schemas, capability bundles,
+permission-scope schemas, validation results, and provenance metadata.
+
+Reuse never transfers authority between personas. Each persona must still obtain
+its own Connection grant, capability selection, API and browser operation
+permissions, and any required high-impact acknowledgements. A shared Tool
+Package must not expose another persona's Connection references, permission
+state, execution history, or browser session.
+
+When an existing Tool Package satisfies a new persona's goal, the platform
+should prefer reuse and present only the incremental service-enablement choices
+required for that persona. If the package version, provider schema, or security
+classification changes, the platform must determine whether revalidation or
+new permission confirmation is required before use.
+
 A Connection requirement may include:
 
 - provider identity
