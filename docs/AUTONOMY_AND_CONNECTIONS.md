@@ -34,6 +34,14 @@ must be visible to the affected persona so it can avoid repeating the request.
 If the user later wants reconsideration of a prohibition, the user is
 responsible for editing or removing that policy manually.
 
+When proposing a durable prohibition, the persona should not present only one
+inferred scope. It should generate multiple meaningful scope candidates ordered
+from narrow to broad, explain the effect of each candidate, and let the user
+choose or edit one. Candidate scopes may include the current intent, a specific
+target, an operation on one Connection, or the operation for the entire persona.
+The default recommendation should remain the narrowest scope that addresses the
+observed concern.
+
 ## Permission scope
 
 Permissions belong to the department persona that obtained them. They are not
