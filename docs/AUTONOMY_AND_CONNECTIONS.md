@@ -19,16 +19,19 @@ Permission choices should support at least:
 
 - allow this action once
 - always allow the proposed bounded scope
-- reject
+- reject this time
+- prohibit this scope until manually changed
 
 A persistent permission prevents repeated prompts only while the future action
 matches the stored scope. Persistent operation permissions remain active until
 the user explicitly revokes or edits them, or until their underlying Persona
 grant or Connection becomes invalid.
 
-Explicit denials and prohibitions are also durable policy state. They must be
-visible to the affected persona so it can avoid repeating a request that the
-user has already rejected. If the user later wants reconsideration, the user is
+A one-time rejection and a durable prohibition are distinct outcomes. A
+one-time rejection applies only to the current intent and does not create a
+persistent policy rule. A durable prohibition is stored as policy state and
+must be visible to the affected persona so it can avoid repeating the request.
+If the user later wants reconsideration of a prohibition, the user is
 responsible for editing or removing that policy manually.
 
 ## Permission scope
@@ -138,7 +141,10 @@ permissions, and supporting evidence.
 ## Rejection behavior
 
 A rejected tool intent is discarded. The system must prevent automatic
-resubmission of an effectively identical intent.
+resubmission of an effectively identical intent inside the same escalation or
+retry cycle. A one-time rejection does not permanently forbid a future request
+that arises from materially new user intent or context. A durable prohibition
+does forbid matching future requests until the user changes the rule manually.
 
 The persona should interpret the rejection using available context and classify
 it as one of:
@@ -222,13 +228,15 @@ The persona-facing context should distinguish:
 
 - active Connection grants
 - active operation permissions
-- explicit denials and prohibitions
+- durable prohibitions
+- one-time rejections relevant to the active retry cycle
 - conditions attached to each rule
 - capabilities or permissions still missing
 
-A rejected or prohibited operation should not be requested again automatically.
-The user may reopen the possibility by editing the rule in the permission
-administration interface.
+A prohibited operation should not be requested again automatically. The user
+may reopen the possibility by editing the rule in the permission administration
+interface. A one-time rejection blocks the active intent and its automatic
+retries, but it is not shown as a permanent prohibition after that cycle ends.
 
 The administration interface should be organized by persona and should display
 Connection grants separately from operation permissions and prohibitions. Users
