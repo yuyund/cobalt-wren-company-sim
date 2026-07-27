@@ -22,7 +22,14 @@ Permission choices should support at least:
 - reject
 
 A persistent permission prevents repeated prompts only while the future action
-matches the stored scope.
+matches the stored scope. Persistent operation permissions remain active until
+the user explicitly revokes or edits them, or until their underlying Persona
+grant or Connection becomes invalid.
+
+Explicit denials and prohibitions are also durable policy state. They must be
+visible to the affected persona so it can avoid repeating a request that the
+user has already rejected. If the user later wants reconsideration, the user is
+responsible for editing or removing that policy manually.
 
 ## Permission scope
 
@@ -155,7 +162,14 @@ performed.
 ## Connections and credentials
 
 External service access is represented as a user-owned Connection. Personas use
-Connections through explicit persona grants.
+Connections through explicit persona grants. A grant applies only to the
+persona that requested and received it; connecting an account does not grant
+other personas access.
+
+Persona Connection grants remain active until explicitly revoked. They do not
+expire by default. They become unusable when the Connection is removed,
+invalidated, loses required capabilities, changes account identity, or is
+revoked for that persona.
 
 The following concepts are distinct:
 
@@ -196,6 +210,34 @@ goal and recommend it to the user. The user may select a narrower or broader
 bundle. If a future operation needs capabilities not present on the Connection,
 the system requests a Connection capability expansion separately from the
 operation permission.
+
+## Permission awareness and administration
+
+A persona should know the permissions, denials, prohibitions, Connection grants,
+and missing permissions relevant to its current goal. The system should not
+inject the user's entire policy store into every prompt. A deterministic
+Permission Context Resolver should select the relevant subset.
+
+The persona-facing context should distinguish:
+
+- active Connection grants
+- active operation permissions
+- explicit denials and prohibitions
+- conditions attached to each rule
+- capabilities or permissions still missing
+
+A rejected or prohibited operation should not be requested again automatically.
+The user may reopen the possibility by editing the rule in the permission
+administration interface.
+
+The administration interface should be organized by persona and should display
+Connection grants separately from operation permissions and prohibitions. Users
+must be able to inspect, edit, and revoke each rule.
+
+When the user edits a rule directly in this interface, that edit is itself an
+explicit authorization decision and requires no additional confirmation. Every
+change must still produce an audit record containing the actor, persona,
+Connection, operation, target, previous value, new value, and timestamp.
 
 ## Tool creation and connection requirements
 
