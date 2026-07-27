@@ -2,29 +2,22 @@
 
 # Mechanical Log: docs
 
+## `docs/ARCHITECTURE.md`
+
+- Change: `modified`
+- Changed lines: `1-10`
+
 ## `docs/AUTONOMY_AND_CONNECTIONS.md`
 
 - Change: `modified`
-- Changed sections:
-  - `Autonomy, Permissions, Review, and Connections`: lines 11-1067
-  - `Status`: lines 13-19
-  - `Autonomy model`: lines 20-54
-  - `Permission scope`: lines 55-96
-  - `Persona and internal agents`: lines 97-124
-  - `Execution and review separation`: lines 125-145
-  - `Review evidence and independence`: lines 146-169
-  - `Human decision after revision exhaustion`: lines 170-181
-  - `Rejection behavior`: lines 182-208
-  - `Connections and credentials`: lines 209-255
-  - `Provider-defined capability bundles`: lines 256-281
-  - `Permission awareness and administration`: lines 282-311
-  - `Dynamic tool creation and connection requirements`: lines 312-381
-  - `Browser-assisted service enablement`: lines 382-609
-  - `Observability requirements`: lines 610-635
-  - `Organizational knowledge boundaries`: lines 636-677
-  - `Retention and evidence lifecycle`: lines 678-703
-  - `Vertical-slice architecture principles`: lines 704-802
-  - `30B-class model operating assumptions`: lines 803-980
-  - `Initial model profiles and release gates`: lines 981-1056
-  - `Open questions`: lines 1057-1067
-- Changed lines: `1-1067`
+- Changed lines: `1-10`
+
+## `docs/RESUME_PLAN.md`
+
+- Change: `modified`
+- Changed lines: `1-10`
+
+## `docs/SCOPE_AND_NON_GOALS.md`
+
+- Change: `modified`
+- Changed lines: `1-10`
