@@ -16,7 +16,7 @@ jobs:
           python -m pip install \
             --index-url https://test.pypi.org/simple/ \
             --extra-index-url https://pypi.org/simple/ \
-            cobalt-wren==0.1.0rc1
+            cobalt-wren==0.1.0rc3
           python -m pip install -e '.[dev]' --extra-index-url https://pypi.org/simple/
       - run: ruff check .
       - run: mypy src

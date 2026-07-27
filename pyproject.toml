@@ -9,7 +9,7 @@ description = "Department-persona company simulation built on Cobalt Wren Native
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-  "cobalt-wren==0.1.0rc1",
+  "cobalt-wren==0.1.0rc3",
 ]
 
 [project.optional-dependencies]

@@ -43,7 +43,7 @@ source .venv/bin/activate
 pip install \
   --index-url https://test.pypi.org/simple/ \
   --extra-index-url https://pypi.org/simple/ \
-  cobalt-wren==0.1.0rc1
+  cobalt-wren==0.1.0rc3
 pip install -e '.[dev]'
 ```
 
