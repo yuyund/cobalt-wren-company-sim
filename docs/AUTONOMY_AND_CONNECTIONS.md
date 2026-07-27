@@ -208,6 +208,27 @@ expire by default. They become unusable when the Connection is removed,
 invalidated, loses required capabilities, changes account identity, or is
 revoked for that persona.
 
+When a Connection becomes invalid, related persona grants and operation
+permissions must not be deleted automatically. They should transition to an
+inactive state that preserves scope, provenance, audit history, and the reason
+for invalidation while preventing execution. Matching requests must fail closed
+and identify reconnection or policy repair as the missing prerequisite.
+
+After reconnection, the platform must re-evaluate the Connection identity,
+authentication scheme, capability set, provider schema, Tool Package version,
+and all dependent API and browser permissions. Rules may reactivate
+automatically only when the platform establishes that their original meaning and
+scope remain compatible. Account changes, capability expansion, changed domains,
+new credential classes, broader side effects, or ambiguous matching require an
+incremental user confirmation. Narrower capabilities may leave only the
+compatible subset active.
+
+Explicit user revocation differs from temporary invalidation. A revoked persona
+grant or permission remains revoked and must not reactivate merely because the
+Connection is repaired. Removing the Connection may retain inactive policy and
+audit records according to retention policy, but no executable credential
+binding may remain.
+
 The following concepts are distinct:
 
 1. a Connection exists for the user
@@ -610,7 +631,7 @@ The following remain intentionally unresolved:
 - detailed resource-criticality and blast-radius thresholds within the agreed always-confirm categories
 - trust, signing, distribution, and revocation rules for cross-Company or public Tool Packages
 - how service documentation is discovered and converted when no formal API schema exists
-- connection revocation and permission invalidation semantics
+- detailed reconnection compatibility and partial-reactivation rules for provider-specific capability changes
 - retention and redaction policies for raw inputs and outputs
 - how organizational memory contributes evidence without leaking unrelated
   context
