@@ -448,6 +448,23 @@ administrative, security-sensitive, or broad external communication require an
 additional explicit acknowledgement or selection before activation. The policy
 system, not the persona, determines whether a candidate falls into this class.
 
+Not every irreversible deletion requires per-execution human attention. The
+always-confirm class should be limited to deletion or revocation of important
+assets whose loss materially affects identity, authority, security, operations,
+legal standing, or substantial business data. Examples include accounts,
+organizations or tenants, production environments, primary data stores,
+credential authorities, critical integrations, and similarly classified
+resources.
+
+Ordinary file-level or record-level deletion should not become an automatic
+always-confirm operation solely because it is technically irreversible. It may be
+executed under an appropriate persistent permission and normal Review when its
+scope, quantity, classification, and blast radius remain within policy. Bulk
+deletion, protected data, unusually broad targets, or provider-defined critical
+resources may elevate the action to human attention. Resource importance and
+blast-radius classification are determined by the policy system using typed tool
+and provider metadata, not by free-form persona judgment alone.
+
 Each high-impact permission should be listed as a separate explicit selection so
 the resulting consent and audit record identify exactly which operations were
 approved. The interface may also provide a select-all control for convenience,
@@ -590,7 +607,7 @@ at application level.
 The following remain intentionally unresolved:
 
 - governance and compatibility rules for provider-defined scope schema versions
-- risk categories and which operations always require human attention
+- detailed resource-criticality and blast-radius thresholds within the agreed always-confirm categories
 - trust, signing, distribution, and revocation rules for cross-Company or public Tool Packages
 - how service documentation is discovered and converted when no formal API schema exists
 - connection revocation and permission invalidation semantics
