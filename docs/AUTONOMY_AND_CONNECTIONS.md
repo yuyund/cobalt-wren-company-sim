@@ -325,6 +325,23 @@ Human interaction should be limited to decisions that cannot safely be inferred,
 such as credential acquisition, provider consent, account selection, and
 permission or prohibition scope.
 
+The normal enablement flow should collapse these decisions into as few prompts
+as possible. The platform should reuse existing Connections, prefill known
+account and provider metadata, infer the smallest useful capability bundle and
+permission scopes, and present a single consolidated confirmation when those
+decisions can be made safely together. OAuth should use provider consent flows;
+API-key services should present only the provider-required fields and setup
+instructions. Tool generation progress, retries, schema conversion, testing,
+and registration should remain invisible unless user action is required or the
+process fails.
+
+A validated operation may become available immediately after the required
+Connection grant and operation permission are approved. Read-only or dry-run
+staging is not mandatory for every generated tool. The platform should instead
+classify operations and apply additional safeguards only where their effects
+justify them, such as destructive, irreversible, financial, identity,
+administrative, or broad external-communication operations.
+
 Generated execution code must run in an isolated, least-privileged environment
 with explicit network destinations, time and resource limits, no ambient secret
 access, and complete tool-call observability. Credentials must be injected only
