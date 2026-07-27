@@ -520,6 +520,14 @@ automatically. The migration must preserve persona-specific authority, record th
 old and new versions and compatibility result, and support operational rollback
 if the new version fails health or contract checks after activation.
 
+A successful compatible migration should produce a concise post-update
+notification rather than requiring approval. The default message should identify
+the Tool Package, old and new versions, affected personas, and whether rollback
+or follow-up action is required. Detailed compatibility evidence, changed
+contracts, validation results, and audit identifiers should be available through
+an expandable view. Multiple compatible migrations may be grouped into one
+notification when doing so does not hide failures or required action.
+
 A successful compatible migration should produce a concise user notification
 rather than remaining completely silent. The default notification should identify
 the Tool Package, old and new versions, affected personas, and successful status
