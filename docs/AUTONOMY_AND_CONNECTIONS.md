@@ -423,6 +423,19 @@ narrow to broad, while the policy engine validates and stores the selected typed
 scope. Sensitive or irreversible browser operations may still require Review or
 human attention even when a persistent permission exists.
 
+Initial browser-operation permissions should be included in the same consolidated
+service-enablement confirmation as Connection creation or reuse, persona grant,
+capability bundle selection, and API operation permissions. The interface must
+present these categories separately enough for informed consent while allowing a
+single confirmation action when the user accepts all recommended scopes.
+
+The consolidated view should show why browser automation is required, approved
+domains, typed browser operations, target resources, takeover conditions, and
+whether each rule is one-time or persistent. Users must be able to edit or omit
+browser scopes without discarding the rest of the service setup. Browser
+permissions discovered only after activation require a later incremental
+confirmation rather than silently expanding the original grant.
+
 A persona may eventually request creation of a tool when no suitable tool
 exists, but the persona is not the trusted authority for activation. Generated
 artifacts must pass deterministic platform validation before they can be used.
