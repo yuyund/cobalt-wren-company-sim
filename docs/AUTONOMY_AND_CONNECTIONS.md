@@ -691,6 +691,62 @@ raw material before its scheduled expiry. Deleting raw material should not
 silently delete independently authorized durable knowledge or mandatory audit
 records, but the relationship and consequences must be visible.
 
+## Vertical-slice architecture principles
+
+The first vertical slice should be small in user-visible scope but must not be a
+throwaway implementation. It should exercise stable contracts across persona
+reasoning, Review, permission resolution, Connection access, Tool Package
+execution, knowledge use, and observability while keeping provider-specific and
+policy-specific behavior replaceable.
+
+The architecture should favor explicit contracts and dependency inversion over
+shared mutable implementation state. Core orchestration must depend on interfaces
+for tool discovery, scope-schema registration, permission matching, Connection
+resolution, Review, evidence collection, knowledge retrieval, execution, and
+audit persistence. Provider adapters, policy implementations, storage backends,
+and UI surfaces should plug into those contracts without requiring changes to
+the central workflow.
+
+Dynamic behavior must be represented as validated data and versioned packages,
+not as unbounded conditionals embedded in the orchestration layer. New services,
+operations, capability bundles, scope dimensions, risk metadata, browser flows,
+and knowledge scopes should normally be introduced through registries,
+declarative schemas, or isolated adapters. Unknown types and versions fail
+closed, while known contracts remain forward-extensible.
+
+The system should separate control-plane concerns from execution-plane concerns:
+
+- the control plane registers and validates Tool Packages, provider schemas,
+  policies, Connections, grants, versions, and migrations
+- the execution plane evaluates a concrete intent against an immutable snapshot
+  of those definitions and performs only the authorized operation
+
+Execution records should reference versioned definitions so later changes do not
+alter the meaning of historical decisions. Long-running or retried work must use
+idempotency keys, correlation identifiers, explicit state transitions, and
+recoverable checkpoints rather than relying on in-process conversational state.
+
+Extension points must be capability-oriented rather than provider-name-oriented.
+For example, Review should evaluate declared effects and evidence requirements,
+not contain Gmail- or GitHub-specific branches. Provider-specific semantics
+belong in typed metadata and adapters, with deterministic platform validation at
+the boundary.
+
+The first slice should intentionally prove these seams with one low-risk use case,
+such as creating an external-service draft. It should include at least one real
+Connection, a typed ToolIntent, Review revision, permission matching, a versioned
+Tool Package, redacted execution evidence, and an inspectable audit trail. Later
+services should be addable primarily by registering new packages and schemas,
+not by modifying the slice's orchestration path.
+
+Architectural abstractions should still be evidence-driven. The project must not
+build a speculative universal framework before the vertical slice exposes a real
+variation point. When a second implementation cannot fit an existing contract
+cleanly, the contract should be generalized with compatibility tests and a
+recorded design rationale. Changes to Cobalt Wren itself should be proposed only
+when the Company slice demonstrates a missing framework-level primitive rather
+than an application-specific need.
+
 ## Open questions
 
 The following remain intentionally unresolved:
