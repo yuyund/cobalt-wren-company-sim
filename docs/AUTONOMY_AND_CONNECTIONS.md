@@ -505,6 +505,19 @@ required for that persona. If the package version, provider schema, or security
 classification changes, the platform must determine whether revalidation or
 new permission confirmation is required before use.
 
+The initial sharing boundary is the same user-owned Company environment. Tool
+Packages may be reused across personas inside that Company, but must not be
+published to other users, organizations, tenants, or a public registry by
+default. Cross-Company or public distribution requires a separate trust model
+covering package signing, provenance verification, publisher identity,
+compatibility, revocation, vulnerability response, policy review, and data or
+credential boundary guarantees.
+
+A package copied or imported from outside the Company is not equivalent to an
+internally generated and validated package. Until an external-distribution model
+is defined, external packages must be treated as untrusted inputs and may not be
+activated through the ordinary internal-reuse path.
+
 A Connection requirement may include:
 
 - provider identity
@@ -548,7 +561,7 @@ The following remain intentionally unresolved:
 
 - governance and compatibility rules for provider-defined scope schema versions
 - risk categories and which operations always require human attention
-- trust levels and activation policy for dynamically generated Tool Packages
+- trust, signing, distribution, and revocation rules for cross-Company or public Tool Packages
 - how service documentation is discovered and converted when no formal API schema exists
 - connection revocation and permission invalidation semantics
 - retention and redaction policies for raw inputs and outputs
