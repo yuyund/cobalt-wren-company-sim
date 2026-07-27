@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any
+from collections.abc import Mapping
 
 from cobalt_wren.native import NativeWorkflowContext, workflow
 
@@ -12,7 +12,7 @@ from .company import build_default_company
 @workflow("company.simulation")
 async def simulate_company(
     ctx: NativeWorkflowContext,
-    request: dict[str, object],
+    request: Mapping[str, object],
 ) -> dict[str, object]:
     customer = str(request.get("customer", "external-customer"))
     goal = str(request.get("request", ""))

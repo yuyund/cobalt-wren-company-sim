@@ -24,7 +24,7 @@ class CompanySimulation:
             recipient="sales",
             content=request,
             sender_kind=ActorKind.CUSTOMER,
-            metadata={"customer": customer},
+            metadata={"customer": customer, "original_request": request},
         )
         bus.publish(initial)
         decisions: list[DepartmentDecision] = []
