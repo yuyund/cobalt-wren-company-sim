@@ -59,7 +59,11 @@ send to one recipient does not imply permission to send to other recipients or
 an entire domain.
 
 The system should propose the least-privileged useful scope and allow the user
-to broaden or narrow it.
+to broaden or narrow it. For persistent permission requests, the persona should
+present multiple meaningful scope candidates ordered from narrow to broad,
+explain the effect of each candidate, and let the user choose or edit one. The
+default recommendation should remain the narrowest scope that enables the
+current goal.
 
 ## Persona and internal agents
 
