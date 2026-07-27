@@ -623,6 +623,48 @@ Wren primitives. Framework changes should be proposed only after the Company
 vertical slice demonstrates which observation data cannot be represented cleanly
 at application level.
 
+## Organizational knowledge boundaries
+
+Durable organizational knowledge must not use a single global visibility model.
+Each knowledge item should carry a typed scope, access policy, confidentiality
+classification, purpose restrictions, provenance, and lifecycle state.
+
+The initial knowledge scopes are:
+
+- `company`: broadly reusable Company-wide knowledge
+- `department`: knowledge owned by one department and optionally shared with
+  explicitly named departments
+- `customer`: knowledge isolated to a particular customer or counterparty
+- `project_case`: knowledge isolated to a project, contract, campaign, incident,
+  ticket, or other bounded case
+- `persona_private`: working knowledge available only to the owning persona
+
+Scope and confidentiality are independent. A knowledge item may additionally be
+classified as public, internal, confidential, restricted, legally held, or a
+provider- or Company-defined equivalent. Purpose restrictions may further limit
+use to support, sales, legal review, incident response, contract delivery, or
+another declared purpose.
+
+Knowledge is eligible for use only when its scope matches the active context, the
+persona has access, confidentiality requirements are satisfied, the current goal
+is relevant, and purpose restrictions permit use. Eligibility does not imply
+automatic prompt injection. A deterministic Knowledge Context Resolver should
+select only the smallest relevant subset and must avoid exposing unrelated
+customer, department, project, or persona-private context.
+
+Knowledge may be promoted from a narrower scope to a broader scope, such as from
+persona-private to department or from department to Company-wide. Promotion must
+be an explicit, auditable policy operation that checks confidentiality,
+customer-specific content, contractual restrictions, personal data, secrets,
+and provenance. A persona may propose promotion but must not silently broaden
+knowledge visibility.
+
+Cross-scope references should preserve the source item's access boundary. A
+Company-wide summary must not provide a path to restricted source content unless
+the requesting persona independently has access to that source. Derived
+knowledge should expose uncertainty and source availability rather than implying
+that inaccessible evidence was directly reviewed by every consumer.
+
 ## Retention and evidence lifecycle
 
 Raw execution material should be retained only for a comparatively short
@@ -659,5 +701,4 @@ The following remain intentionally unresolved:
 - how service documentation is discovered and converted when no formal API schema exists
 - detailed reconnection compatibility and partial-reactivation rules for provider-specific capability changes
 - concrete default retention windows by evidence class and jurisdiction
-- how organizational memory contributes evidence without leaking unrelated
-  context
+- detailed knowledge promotion, declassification, and cross-scope aggregation rules
