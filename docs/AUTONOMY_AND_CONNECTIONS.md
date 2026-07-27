@@ -397,6 +397,32 @@ must never be recorded in plaintext. If the same session cannot be resumed
 safely, the platform should stop and request recovery rather than silently
 starting a different account or browser context.
 
+Browser automation permissions are distinct from API operation permissions. A
+browser permission scope should include at least:
+
+```text
+persona × browser session/Connection × domain × browser operation
+× target resource × conditions
+```
+
+Browser operations should be typed rather than represented as arbitrary click
+sequences. Example operations include navigate, inspect, fill non-secret fields,
+submit configuration, create credential, change account settings, download an
+artifact, and delete or revoke a resource. The resulting low-level browser
+actions remain observable implementation details of the approved operation.
+
+Domain and target-resource matching must follow the same provider-defined,
+versioned scope-schema rules as API tools. Redirects or navigation outside the
+approved domain set require a new policy decision unless they are declared parts
+of a trusted authentication flow. API permission does not implicitly authorize
+browser-console changes, and browser permission does not authorize direct API
+operations.
+
+The persona should propose multiple persistent browser-permission scopes from
+narrow to broad, while the policy engine validates and stores the selected typed
+scope. Sensitive or irreversible browser operations may still require Review or
+human attention even when a persistent permission exists.
+
 A persona may eventually request creation of a tool when no suitable tool
 exists, but the persona is not the trusted authority for activation. Generated
 artifacts must pass deterministic platform validation before they can be used.
