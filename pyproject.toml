@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cobalt-wren-company-sim"
+version = "0.1.0"
+description = "Department-persona company simulation built on Cobalt Wren Native workflows"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "cobalt-wren==0.1.0rc1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=9,<10",
+  "ruff>=0.15,<0.16",
+  "mypy>=2.2,<3",
+]
+
+[project.scripts]
+company-sim = "company_sim.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+[tool.mypy]
+strict = true
