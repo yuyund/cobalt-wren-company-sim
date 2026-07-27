@@ -77,6 +77,13 @@ handoffs remain bounded rather than recursively quoting the entire transcript.
 Native workflow. The workflow records progress and metrics while the company
 domain remains independent of Cobalt Wren internals.
 
+## Planned autonomy boundary
+
+The agreed direction for permissions, review, external Connections, credential
+isolation, rejection handling, and tool-call observability is recorded in
+[`AUTONOMY_AND_CONNECTIONS.md`](AUTONOMY_AND_CONNECTIONS.md). These are planned
+contracts rather than claims about the current prototype.
+
 ## Safety and convergence constraints
 
 - bounded maximum hop count
