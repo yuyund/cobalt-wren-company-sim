@@ -384,6 +384,19 @@ that force the user to switch repeatedly between the platform and a provider
 site. Browser automation should remain an implementation detail unless takeover
 or recovery is required.
 
+Browser automation should run headlessly by default. When secure user takeover
+is required, the platform should attach an interactive view to the same isolated
+browser session, preserve navigation and form state, clearly identify the step
+that needs human action, and return control to automation after completion. The
+user should not need to restart the flow or repeat fields already entered.
+
+The transition between headless execution and interactive takeover must be
+auditable. Screenshots, DOM snapshots, and action logs may be retained according
+to redaction and retention policy, but secret fields and authentication values
+must never be recorded in plaintext. If the same session cannot be resumed
+safely, the platform should stop and request recovery rather than silently
+starting a different account or browser context.
+
 A persona may eventually request creation of a tool when no suitable tool
 exists, but the persona is not the trusted authority for activation. Generated
 artifacts must pass deterministic platform validation before they can be used.
