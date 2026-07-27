@@ -739,6 +739,12 @@ Tool Package, redacted execution evidence, and an inspectable audit trail. Later
 services should be addable primarily by registering new packages and schemas,
 not by modifying the slice's orchestration path.
 
+Implementation should proceed in two steps. First, a deterministic fake provider
+should exercise the complete architecture quickly and reproducibly. Immediately
+after that path is stable, the same contracts should be validated against a real
+Gmail draft Connection. The fake-provider step must not define provider-specific
+shortcuts that the Gmail step cannot reuse.
+
 Architectural abstractions should still be evidence-driven. The project must not
 build a speculative universal framework before the vertical slice exposes a real
 variation point. When a second implementation cannot fit an existing contract
@@ -880,6 +886,12 @@ analyze clustered failures, generate candidate changes to prompts, examples,
 skills, agent topology, tool descriptions, tool-return normalization, context
 policies, and retry or routing rules, then evaluate those candidates against the
 shared corpus without requiring a developer to hand-edit every surface.
+
+Initial optimization execution should be limited to explicit developer invocation
+and CI runs. Production-trace-driven continuous optimization should be enabled
+only after redaction, retention, access control, and representative evaluation
+coverage are proven. This sequencing limits feedback-loop risk while preserving
+the system-owned candidate-generation and evaluation workflow.
 
 Candidate generation and production authority are separate. Automatically
 generated profiles begin inactive and must pass schema validation, security and
