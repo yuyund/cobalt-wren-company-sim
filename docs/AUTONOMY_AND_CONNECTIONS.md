@@ -436,6 +436,18 @@ browser scopes without discarding the rest of the service setup. Browser
 permissions discovered only after activation require a later incremental
 confirmation rather than silently expanding the original grant.
 
+Recommended Connection grants, capability bundles, API permissions, and browser
+permissions should be preselected by default to minimize setup effort. The
+selected defaults must remain the least-privileged useful set inferred for the
+current goal, and the interface must make every selected item visible and
+editable before confirmation.
+
+High-impact permissions must not rely on passive preselection alone. Operations
+classified as destructive, irreversible, financial, identity-related,
+administrative, security-sensitive, or broad external communication require an
+additional explicit acknowledgement or selection before activation. The policy
+system, not the persona, determines whether a candidate falls into this class.
+
 A persona may eventually request creation of a tool when no suitable tool
 exists, but the persona is not the trusted authority for activation. Generated
 artifacts must pass deterministic platform validation before they can be used.
