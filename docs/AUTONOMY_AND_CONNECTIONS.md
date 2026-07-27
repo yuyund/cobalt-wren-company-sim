@@ -747,6 +747,78 @@ recorded design rationale. Changes to Cobalt Wren itself should be proposed only
 when the Company slice demonstrates a missing framework-level primitive rather
 than an application-specific need.
 
+## 30B-class model operating assumptions
+
+The system must be designed to operate reliably with an approximately 30B-class
+language model rather than assuming frontier-model reasoning quality. Correctness
+must come from constrained responsibilities, typed contracts, deterministic
+platform checks, and measurable evaluation rather than from increasingly broad
+prompts or unconstrained autonomous planning.
+
+Each LLM role should receive the smallest context and decision surface needed for
+its task. Strategy, Analysis, Execution, and Review should use separate prompts,
+explicit input schemas, bounded output schemas, short instruction hierarchies,
+and task-specific examples. The model should propose classifications, plans,
+claims, or typed intents; the platform remains responsible for normalization,
+policy matching, permission decisions, schema validation, secret handling,
+execution, and state transitions.
+
+Structured generation must be treated as a compiler boundary. Outputs should be
+validated against versioned schemas, rejected on unknown fields or invalid enum
+values, and repaired through narrow, diagnostic retries rather than by replaying
+an entire conversation. Natural-language fallbacks must not silently become
+executable actions. The system should prefer constrained choices, retrieved
+identifiers, and canonical values over requiring the model to reproduce opaque
+IDs or provider-specific syntax from memory.
+
+Context construction is a primary reliability mechanism. Permission Context,
+Knowledge Context, Tool Package definitions, and evidence should be selected by
+deterministic resolvers, ranked for relevance, deduplicated, and kept within
+explicit token budgets. Large raw transcripts, policy stores, API documentation,
+or tool catalogs should not be injected wholesale. Summaries must retain source
+references so Review can distinguish retrieved facts from model inference.
+
+The runtime should support model-adaptive execution without coupling application
+logic to one model. Prompt templates, decoding settings, context budgets, retry
+policies, and role assignments should be versioned configuration. A stronger or
+smaller model may be substituted per role, but the same typed contracts and
+platform gates must apply. Model self-reported confidence is advisory only and
+must not bypass deterministic checks.
+
+Evaluation is part of the product architecture. Every important contract should
+have a reproducible evaluation set covering normal cases, ambiguous requests,
+missing permissions, prohibitions, conflicting evidence, malformed tool output,
+provider changes, prompt injection, secret leakage, and high-impact actions.
+Metrics should include schema-valid output rate, correct abstention, permission
+scope accuracy, Review defect detection, unsupported-claim rate, tool success,
+retry count, latency, token use, and human-escalation rate. Regressions must block
+prompt, schema, model, or Tool Package promotion according to defined thresholds.
+
+Development efficiency should come from reusable fixtures and observability, not
+from weakening the gates. The project should provide:
+
+- deterministic fake Connections, tools, providers, clocks, and policy stores
+- golden ToolIntent, Review, evidence, and audit fixtures
+- record-and-replay of redacted model and tool interactions
+- local scenario runners for one complete workflow
+- contract tests for every adapter and schema version
+- prompt and model comparison harnesses using the same evaluation corpus
+- failure clustering that distinguishes model, prompt, context, schema, policy,
+  adapter, and provider defects
+
+The first vertical slice should establish a measurable baseline on the target
+30B-class model before expanding functionality. A capability is not complete
+merely because it succeeds in a demonstration; it must meet agreed reliability,
+cost, and latency thresholds across the evaluation corpus. When the model fails,
+the preferred remedy order is: reduce ambiguity, improve deterministic context,
+tighten the schema, split the task, add platform validation, improve examples,
+and only then consider model-specific tuning or a stronger model.
+
+Fine-tuning may be considered after sufficient representative failure data
+exists, but the architecture must not depend on fine-tuning for basic safety or
+policy correctness. Prompt changes, model changes, and fine-tuned checkpoints
+must be versioned and auditable alongside Tool Package and policy versions.
+
 ## Open questions
 
 The following remain intentionally unresolved:
