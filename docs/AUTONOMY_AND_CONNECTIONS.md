@@ -348,6 +348,42 @@ access, and complete tool-call observability. Credentials must be injected only
 through declared secret bindings after Connection, persona grant, permission,
 and Review checks pass.
 
+## Browser-assisted service enablement
+
+The platform should support browser automation as an enablement mechanism when a
+provider does not offer a sufficiently direct API or when credentials must be
+created through a web console. Routine navigation, form discovery, non-secret
+field entry, account selection, documentation lookup, and post-creation
+verification may be automated.
+
+Browser automation must use an isolated browser context with explicit domain
+allowlists, observable actions, bounded navigation, download controls, and no
+ambient access to unrelated browser profiles or credentials. Reusable browser
+authentication state is sensitive credential material and must be stored in the
+credential system rather than in repositories or ordinary artifacts.
+
+The browser flow must support secure user takeover. Automation pauses and hands
+control to the user for steps that require direct human participation or should
+not be delegated, including:
+
+- password entry when no approved password-manager integration exists
+- MFA, passkeys, hardware security keys, or device approval
+- CAPTCHA or anti-bot challenges
+- provider consent, legal terms, or billing commitments that require the user
+- ambiguous account or organization selection
+- revealing, copying, or confirming a newly issued secret when policy requires
+
+After the user completes the sensitive step, automation may resume in the same
+isolated session, verify the result, capture only declared credential outputs,
+store them by reference, and continue Tool Package generation and activation.
+The system must not attempt to defeat CAPTCHA or bypass provider security
+controls.
+
+The preferred user experience is a single guided flow rather than instructions
+that force the user to switch repeatedly between the platform and a provider
+site. Browser automation should remain an implementation detail unless takeover
+or recovery is required.
+
 A persona may eventually request creation of a tool when no suitable tool
 exists, but the persona is not the trusted authority for activation. Generated
 artifacts must pass deterministic platform validation before they can be used.
