@@ -278,11 +278,64 @@ explicit authorization decision and requires no additional confirmation. Every
 change must still produce an audit record containing the actor, persona,
 Connection, operation, target, previous value, new value, and timestamp.
 
-## Tool creation and connection requirements
+## Dynamic tool creation and connection requirements
 
-A persona may eventually create a tool when no suitable tool exists. A created
-tool must declare its required Connection schema rather than requesting secrets
-through ordinary conversation.
+The design goal is to minimize user involvement when enabling a new service.
+The expected user responsibility should normally stop at obtaining or approving
+credentials and entering provider-required values. Tool discovery, generation,
+validation, registration, and lifecycle management should be system-owned.
+
+The platform should not be limited to a predefined catalog of supported
+services. When no suitable tool exists, it should be possible to create one
+dynamically from machine-readable service information such as OpenAPI,
+GraphQL introspection, JSON Schema, protocol descriptions, provider
+documentation, or an application-generated adapter specification.
+
+Dynamic creation should produce a versioned Tool Package rather than injecting
+arbitrary code directly into the persona runtime. A Tool Package should declare
+at least:
+
+- tool identity and version
+- operations and typed input/output schemas
+- provider and Connection requirements
+- capability bundles
+- permission scope schema and matching semantics
+- endpoint and transport policy
+- secret bindings by reference
+- redaction rules
+- deterministic validation tests
+- execution resource limits
+- provenance and generation metadata
+
+A generation pipeline should separate authoring from activation:
+
+```text
+service request
+-> discover or describe API
+-> generate Tool Package
+-> static validation
+-> isolated contract tests
+-> security and policy review
+-> register inactive version
+-> activate for an explicitly granted persona
+```
+
+The user should not be required to review generated code or construct the tool.
+Human interaction should be limited to decisions that cannot safely be inferred,
+such as credential acquisition, provider consent, account selection, and
+permission or prohibition scope.
+
+Generated execution code must run in an isolated, least-privileged environment
+with explicit network destinations, time and resource limits, no ambient secret
+access, and complete tool-call observability. Credentials must be injected only
+through declared secret bindings after Connection, persona grant, permission,
+and Review checks pass.
+
+A persona may eventually request creation of a tool when no suitable tool
+exists, but the persona is not the trusted authority for activation. Generated
+artifacts must pass deterministic platform validation before they can be used.
+A created tool must declare its required Connection schema rather than
+requesting secrets through ordinary conversation.
 
 A Connection requirement may include:
 
@@ -327,7 +380,8 @@ The following remain intentionally unresolved:
 
 - governance and compatibility rules for provider-defined scope schema versions
 - risk categories and which operations always require human attention
-- identity and lifecycle of dynamically created tools
+- trust levels and activation policy for dynamically generated Tool Packages
+- how service documentation is discovered and converted when no formal API schema exists
 - connection revocation and permission invalidation semantics
 - retention and redaction policies for raw inputs and outputs
 - how organizational memory contributes evidence without leaking unrelated
