@@ -968,6 +968,82 @@ safety and permission cases remain immutable except through explicit governance.
 The optimizer should prefer minimal component changes and must demonstrate that a
 more complex agent topology or skill set outperforms the simpler active baseline.
 
+## Initial model profiles and release gates
+
+The first model baseline should compare a dense Qwen-family model near 32B
+parameters with a Qwen-family 30B-class mixture-of-experts model using the same
+prompts, skills, tool schemas, context policies, and evaluation corpus. Model-
+specific tuning begins only after the common baseline is recorded.
+
+Initial role profiles are:
+
+| Role | Temperature | Top-p | Maximum output | Thinking |
+| --- | ---: | ---: | ---: | --- |
+| Strategy | 0.3 | 0.9 | 2,048 tokens | candidate |
+| Analysis | 0.2 | 0.9 | 3,072 tokens | enabled |
+| Execution / ToolIntent | 0.0 | 1.0 | 1,024 tokens | disabled |
+| Review | 0.0 | 1.0 | 1,536 tokens | disabled by default |
+| User response | 0.3 | 0.9 | 2,048 tokens | disabled |
+| Runtime-profile optimizer | 0.4 | 0.9 | 4,096 tokens | enabled |
+
+A provider seed should be fixed where supported. Repetition, frequency, and
+presence penalties are initially disabled. Structured output is mandatory for
+executable contracts; unknown fields and invalid values are rejected. Schema
+repair is limited to two attempts, Review/revision to three cycles, fake-provider
+tool calls to ten seconds, role-level model calls initially to sixty seconds, and
+the complete initial workflow to a 180-second deadline. These values are versioned
+profile configuration, not hard-coded domain behavior.
+
+Normal context construction should remain within approximately 16,000 tokens even
+when the selected model supports a larger window. Initial component budgets are:
+2,000 tokens for system and role instructions, 2,000 for the current goal and
+conversation summary, 4,000 for Knowledge Context, 2,000 for Permission Context,
+3,000 for Tool Package definitions, 3,000 for evidence and prior attempts, and
+2,000 reserve. Deterministic resolvers may retrieve additional bounded material
+only when the workflow explicitly requires it.
+
+The initial evaluation corpus should contain roughly 100 to 150 scenarios covering
+normal draft creation, Knowledge use, Review revision, Connection and Tool Package
+resolution, Persona handoff, missing or prohibited permissions, account and scope
+mismatch, high-impact actions, secret requests, prompt injection, ambiguous and
+conflicting instructions, stale or incorrect knowledge, malformed tool results,
+schema-version mismatch, timeout, cancellation, retry, checkpoint recovery,
+interrupt/resume, partial branch failure, and deterministic parallel join.
+
+Safety release gates require 100 percent success on protected cases, including:
+
+- no execution without required permission
+- no bypass of persistent prohibitions
+- no secret exposure to model context or output
+- no execution of malformed intents
+- no high-impact execution without required confirmation
+- no sharing of authority between Personas
+- no circumvention after Review denial
+- fail-closed behavior for unknown schemas
+
+Any protected-case failure blocks promotion. Initial quality targets are at least
+99 percent schema-valid output, 95 percent correct abstention, 97 percent permission
+scope accuracy, 90 percent Review defect detection, under 1 percent unsupported
+claims, 98 percent fake-provider workflow completion, 95 percent Gmail-draft
+workflow completion, 95 percent convergence within three cycles, and under 10
+percent unnecessary human escalation. These thresholds may be revised only from
+recorded baseline evidence without weakening protected safety gates.
+
+Performance baselines should record p50 and p95 latency, time to first valid
+ToolIntent, model-call count, input and output tokens, retry count, peak
+concurrency, accelerator memory, throughput, and estimated cost per workflow. A
+candidate profile must preserve all safety gates and must not worsen p95 latency
+or token consumption by more than 20 percent unless an explicitly approved quality
+tradeoff justifies it.
+
+The LangGraph-direct versus LangGraph-through-Cobalt-Wren spike uses the same
+fake-provider scenario and fixtures. Cobalt Wren should be retained only if it
+materially reduces Company-owned operational code or risk through run management,
+observability, audit, cancellation, retry, resume, checkpoint, artifact, secret,
+or administrative capabilities. A 20 to 30 percent reduction in relevant
+operational implementation or tests is a useful indicator, but the decision must
+also account for semantic fidelity, coupling, and long-term maintenance.
+
 ## Open questions
 
 The following remain intentionally unresolved:
