@@ -623,6 +623,32 @@ Wren primitives. Framework changes should be proposed only after the Company
 vertical slice demonstrates which observation data cannot be represented cleanly
 at application level.
 
+## Retention and evidence lifecycle
+
+Raw execution material should be retained only for a comparatively short
+diagnostic window by default. This includes unstructured tool inputs and
+outputs, provider responses, browser screenshots, DOM snapshots, and similarly
+detailed evidence. The exact default duration remains a configurable policy
+choice rather than a permanent retention guarantee.
+
+Durable organizational knowledge is distinct from raw logs. Before raw material
+expires, the system may derive structured, source-linked knowledge, decisions,
+outcomes, permission history, and audit summaries that are useful for future
+work. Derived knowledge must preserve provenance and uncertainty while excluding
+secrets and unrelated context; it must not become a hidden copy of the entire raw
+record.
+
+Legal, regulatory, contractual, security-incident, or explicit litigation-hold
+requirements may override normal deletion. Held records must be isolated,
+access-controlled, auditable, and associated with a documented retention basis
+and release condition. Ordinary users and personas must not be able to bypass a
+hold through routine deletion controls.
+
+Users should be able to inspect applicable retention status and delete eligible
+raw material before its scheduled expiry. Deleting raw material should not
+silently delete independently authorized durable knowledge or mandatory audit
+records, but the relationship and consequences must be visible.
+
 ## Open questions
 
 The following remain intentionally unresolved:
@@ -632,6 +658,6 @@ The following remain intentionally unresolved:
 - trust, signing, distribution, and revocation rules for cross-Company or public Tool Packages
 - how service documentation is discovered and converted when no formal API schema exists
 - detailed reconnection compatibility and partial-reactivation rules for provider-specific capability changes
-- retention and redaction policies for raw inputs and outputs
+- concrete default retention windows by evidence class and jurisdiction
 - how organizational memory contributes evidence without leaking unrelated
   context
