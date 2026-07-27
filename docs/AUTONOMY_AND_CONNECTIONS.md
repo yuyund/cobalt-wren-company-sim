@@ -501,9 +501,30 @@ state, execution history, or browser session.
 
 When an existing Tool Package satisfies a new persona's goal, the platform
 should prefer reuse and present only the incremental service-enablement choices
-required for that persona. If the package version, provider schema, or security
-classification changes, the platform must determine whether revalidation or
-new permission confirmation is required before use.
+required for that persona.
+
+When a new Tool Package version is generated, it must first pass the normal
+validation pipeline. After validation, the platform—not the package authoring
+persona or generated package metadata alone—must compare the new version with the
+currently active version and determine compatibility.
+
+The platform should evaluate at least operation semantics, typed input and output
+contracts, permission-scope schemas and matching rules, required Connections and
+credentials, network destinations, side effects, risk classification, redaction,
+and runtime security constraints. Package-declared migration metadata may be used
+as evidence but is not authoritative.
+
+If the platform determines that the new version is compatible with the active
+persona grants and permissions, all affected personas should migrate
+automatically. The migration must preserve persona-specific authority, record the
+old and new versions and compatibility result, and support operational rollback
+if the new version fails health or contract checks after activation.
+
+If compatibility cannot be established, migration must fail closed. The existing
+version remains active, and only the incremental Connection, capability, API or
+browser permission changes required by the new version are presented for user
+approval. A version must never inherit broader authority merely because it
+replaces an older package.
 
 The initial sharing boundary is the same user-owned Company environment. Tool
 Packages may be reused across personas inside that Company, but must not be
