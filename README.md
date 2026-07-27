@@ -4,7 +4,7 @@ type: guide
 status: current
 owner: repository-maintainers
 created_at: '2026-07-27'
-updated_at: '2026-07-27'
+updated_at: '2026-07-28'
 review:
   due_at: '2027-01-23'
 validity:
@@ -93,7 +93,7 @@ baseline, evaluation gates, and implementation order are documented in
 [`docs/implementation-handoff.md`](docs/implementation-handoff.md).
 
 Normative detail is in
-[`docs/AUTONOMY_AND_CONNECTIONS.md`](docs/AUTONOMY_AND_CONNECTIONS.md).
+[`docs/autonomy-and-connections.md`](docs/autonomy-and-connections.md).
 
 ## Next steps
 

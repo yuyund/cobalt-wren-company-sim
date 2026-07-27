@@ -4,7 +4,7 @@ type: guide
 status: current
 owner: repository-maintainers
 created_at: '2026-07-27'
-updated_at: '2026-07-27'
+updated_at: '2026-07-28'
 review:
   due_at: '2026-08-10'
 validity:
@@ -23,7 +23,7 @@ and the working preferences that shaped those decisions.
 
 When this document conflicts with older prototype-oriented wording elsewhere,
 use the newer explicit decisions in this document and
-[`AUTONOMY_AND_CONNECTIONS.md`](AUTONOMY_AND_CONNECTIONS.md), then update the
+[`autonomy-and-connections.md`](autonomy-and-connections.md), then update the
 older document rather than silently guessing.
 
 ## Current position
@@ -105,7 +105,7 @@ The default is the smallest topology that meets the evaluation gate.
   categories, not for every ordinary deletion or mutation.
 
 Detailed Review, rejection, evidence, and critical-operation rules are in
-[`AUTONOMY_AND_CONNECTIONS.md`](AUTONOMY_AND_CONNECTIONS.md).
+[`autonomy-and-connections.md`](autonomy-and-connections.md).
 
 ## Connections, tools, and credentials
 
@@ -448,14 +448,21 @@ The project owner has repeatedly preferred the following approach:
   reconcile the generated output, rerun checks, and commit the final consistent
   state rather than bypassing the monitor
 
+## Documentation contract status
+
+The documentation contract was revalidated after its rules were updated on
+2026-07-27. Any newly reported violations must be fixed in the handwritten source
+documents and the generated work-knowledge metadata must be regenerated and
+committed; bypassing the contract is not an accepted workflow.
+
 ## Source-of-truth map
 
 - This document: cross-cutting handoff, current position, and implementation order
-- `AUTONOMY_AND_CONNECTIONS.md`: detailed normative autonomy, permission,
-  Connection, Review, knowledge, architecture, model, optimization, and evaluation
-  requirements
-- `ARCHITECTURE.md`: concise current/proposed architecture and boundaries
-- `SCOPE_AND_NON_GOALS.md`: current implementation scope and deferred areas
-- `RESUME_PLAN.md`: immediate restart checklist
+- `autonomy-and-connections.md`: overview and links to the split normative
+  requirements for autonomy, Connections, browser enablement, knowledge,
+  architecture, models, optimization, and evaluation
+- `architecture.md`: concise current/proposed architecture and boundaries
+- `scope-and-non-goals.md`: current implementation scope and deferred areas
+- `resume-plan.md`: immediate restart checklist
 - generated `index.md` and `log.md` files: work-knowledge metadata; do not edit
   manually

@@ -7,13 +7,27 @@
 - Change: `modified`
 - Changed sections:
   - `Cobalt Wren Company Simulation`: lines 14-104
-  - `Current scope`: lines 78-87
   - `Design handoff`: lines 88-97
-- Changed lines: `85-94`
+- Changed lines: `96`
 
-## `docs/ARCHITECTURE.md`
+## `docs/AUTONOMY_AND_CONNECTIONS.md`
 
-- Change: `modified`
+- Change: `deleted`
+
+## `docs/architecture-model-and-evaluation.md`
+
+- Change: `added`
+- Changed sections:
+  - `Architecture, Model, and Evaluation`: lines 14-367
+  - `Vertical-slice architecture principles`: lines 18-115
+  - `30B-class model operating assumptions`: lines 116-292
+  - `Initial model profiles and release gates`: lines 293-367
+- Changed lines: `1-364`
+
+## `docs/architecture.md`
+
+- Change: `renamed`
+- Previous path: `docs/ARCHITECTURE.md`
 - Changed sections:
   - `Architecture`: lines 14-149
   - `Purpose`: lines 16-26
@@ -27,11 +41,78 @@
   - `Knowledge and evidence`: lines 120-125
   - `First slice`: lines 126-136
   - `Safety and convergence`: lines 137-149
-- Changed lines: `8, 15-19, 21-22, 24-26, 44, 51-85, 87, 89-92, 94, 96-99, 101, 103, 105-108, 110, 112-115, 117, 119-121, 123, 125, 127-128, 130-132, 134, 136-143, 145-146`
+- Changed lines: `1-149`
 
-## `docs/RESUME_PLAN.md`
+## `docs/autonomy-and-connections.md`
+
+- Change: `added`
+- Changed sections:
+  - `Autonomy and Connections Requirements`: lines 14-36
+  - `Requirement documents`: lines 18-25
+  - `Open questions`: lines 26-36
+- Changed lines: `1-33`
+
+## `docs/autonomy-permissions-review.md`
+
+- Change: `added`
+- Changed sections:
+  - `Autonomy, Permissions, and Review`: lines 14-205
+  - `Status`: lines 18-23
+  - `Autonomy model`: lines 24-57
+  - `Permission scope`: lines 58-98
+  - `Persona and internal agents`: lines 99-125
+  - `Execution and review separation`: lines 126-145
+  - `Review evidence and independence`: lines 146-168
+  - `Human decision after revision exhaustion`: lines 169-179
+  - `Rejection behavior`: lines 180-205
+- Changed lines: `1-202`
+
+## `docs/connections-and-tool-packages.md`
+
+- Change: `added`
+- Changed sections:
+  - `Connections and Tool Packages`: lines 14-303
+  - `Connections and credentials`: lines 18-63
+  - `Provider-defined capability bundles`: lines 64-88
+  - `Permission awareness and administration`: lines 89-117
+  - `Dynamic tool creation and connection requirements`: lines 118-187
+  - `Browser-assisted service enablement`: lines 188-303
+- Changed lines: `1-300`
+
+## `docs/high-impact-permissions-and-package-lifecycle.md`
+
+- Change: `added`
+- Changed sections:
+  - `High-impact Permissions and Tool Package Lifecycle`: lines 14-129
+  - `Explicit high-impact selection and completion details`: lines 18-129
+- Changed lines: `1-126`
+
+## `docs/implementation-handoff.md`
 
 - Change: `modified`
+- Changed sections:
+  - `Implementation Handoff`: lines 14-468
+  - `Purpose`: lines 16-28
+  - `Confirmed autonomy and permission requirements`: lines 66-109
+  - `Review and human escalation`: lines 95-109
+  - `Documentation contract status`: lines 451-457
+  - `Source-of-truth map`: lines 458-468
+- Changed lines: `26, 108, 451-457, 461-466`
+
+## `docs/observability-knowledge-retention.md`
+
+- Change: `added`
+- Changed sections:
+  - `Observability, Knowledge, and Retention`: lines 14-108
+  - `Observability requirements`: lines 18-42
+  - `Organizational knowledge boundaries`: lines 43-83
+  - `Retention and evidence lifecycle`: lines 84-108
+- Changed lines: `1-105`
+
+## `docs/resume-plan.md`
+
+- Change: `renamed`
+- Previous path: `docs/RESUME_PLAN.md`
 - Changed sections:
   - `Resume Plan`: lines 14-89
   - `Start here`: lines 16-28
@@ -40,53 +121,16 @@
   - `Do not do first`: lines 61-70
   - `First decisions still required`: lines 71-80
   - `Validation before each handoff`: lines 81-89
-- Changed lines: `8, 13-24, 28-86`
+- Changed lines: `1-89`
 
-## `docs/SCOPE_AND_NON_GOALS.md`
+## `docs/scope-and-non-goals.md`
 
-- Change: `modified`
+- Change: `renamed`
+- Previous path: `docs/SCOPE_AND_NON_GOALS.md`
 - Changed sections:
   - `Scope and Non-goals`: lines 14-69
   - `Existing prototype scope`: lines 16-26
   - `Next vertical-slice scope`: lines 27-41
   - `Explicit non-goals for the first slice`: lines 42-59
   - `Deferred capabilities`: lines 60-69
-- Changed lines: `8, 13, 15-17, 20, 22, 24, 26-41, 45-48, 50-51, 54-55, 59-66`
-
-## `docs/implementation-handoff.md`
-
-- Change: `added`
-- Changed sections:
-  - `Implementation Handoff`: lines 14-461
-  - `Purpose`: lines 16-28
-  - `Current position`: lines 29-51
-  - `Product direction`: lines 52-65
-  - `Confirmed autonomy and permission requirements`: lines 66-109
-  - `Persona authority`: lines 68-78
-  - `Internal agents`: lines 79-94
-  - `Review and human escalation`: lines 95-109
-  - `Connections, tools, and credentials`: lines 110-145
-  - `Connections`: lines 112-122
-  - `Tool Packages`: lines 123-137
-  - `Browser-assisted setup`: lines 138-145
-  - `Organizational knowledge`: lines 146-171
-  - `Workflow-engine decision`: lines 172-214
-  - `Current priority`: lines 174-188
-  - `Cobalt Wren adoption is conditional`: lines 189-214
-  - `First vertical slice`: lines 215-243
-  - `Stage 1: deterministic fake provider`: lines 219-236
-  - `Stage 2: Gmail draft`: lines 237-243
-  - `Initial domain contracts`: lines 244-266
-  - `30B-class model baseline`: lines 267-324
-  - `Initial role parameters`: lines 284-307
-  - `Context budget`: lines 308-324
-  - `Evaluation and release gates`: lines 325-364
-  - `Protected safety gates`: lines 332-344
-  - `Initial quality targets`: lines 345-356
-  - `Performance and promotion`: lines 357-364
-  - `Runtime-profile optimization`: lines 365-391
-  - `Recommended implementation order`: lines 392-412
-  - `Explicitly unresolved`: lines 413-430
-  - `Working preferences and decision rules`: lines 431-450
-  - `Source-of-truth map`: lines 451-461
-- Changed lines: `1-458`
+- Changed lines: `1-69`

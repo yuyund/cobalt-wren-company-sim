@@ -4,7 +4,7 @@ type: reference
 status: current
 owner: repository-maintainers
 created_at: '2026-07-27'
-updated_at: '2026-07-27'
+updated_at: '2026-07-28'
 review:
   due_at: '2026-08-10'
 validity:
@@ -18,9 +18,9 @@ validity:
 Read, in order:
 
 1. [`implementation-handoff.md`](implementation-handoff.md)
-2. [`AUTONOMY_AND_CONNECTIONS.md`](AUTONOMY_AND_CONNECTIONS.md)
-3. [`ARCHITECTURE.md`](ARCHITECTURE.md)
-4. [`SCOPE_AND_NON_GOALS.md`](SCOPE_AND_NON_GOALS.md)
+2. [`autonomy-and-connections.md`](autonomy-and-connections.md)
+3. [`architecture.md`](architecture.md)
+4. [`scope-and-non-goals.md`](scope-and-non-goals.md)
 
 The existing deterministic simulation is proven prototype code. The next task is
 not to add an LLM to the fixed chain; it is to establish the new domain contracts

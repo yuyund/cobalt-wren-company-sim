@@ -4,14 +4,25 @@
 
 ## Summary
 
-- Concepts: 5
+- Concepts: 10
 - Child directories: 0
 
 ## Documents
 
-### [Architecture](ARCHITECTURE.md)
+### [Architecture, Model, and Evaluation](architecture-model-and-evaluation.md)
 
-- Path: `ARCHITECTURE.md`
+- Path: `architecture-model-and-evaluation.md`
+- Type: `reference`
+- Review due: `2026-08-10`
+- Sections:
+  - `Architecture, Model, and Evaluation`: lines 14-367
+  - `Vertical-slice architecture principles`: lines 18-115
+  - `30B-class model operating assumptions`: lines 116-292
+  - `Initial model profiles and release gates`: lines 293-367
+
+### [Architecture](architecture.md)
+
+- Path: `architecture.md`
 - Type: `reference`
 - Review due: `2026-08-10`
 - Sections:
@@ -28,59 +39,53 @@
   - `First slice`: lines 126-136
   - `Safety and convergence`: lines 137-149
 
-### [Autonomy, Permissions, Review, and Connections](AUTONOMY_AND_CONNECTIONS.md)
+### [Autonomy and Connections Requirements](autonomy-and-connections.md)
 
-- Path: `AUTONOMY_AND_CONNECTIONS.md`
-- Type: `reference`
-- Review due: `2026-10-25`
+- Path: `autonomy-and-connections.md`
+- Type: `guide`
+- Review due: `2026-08-10`
 - Sections:
-  - `Autonomy, Permissions, Review, and Connections`: lines 14-1070
-  - `Status`: lines 16-22
-  - `Autonomy model`: lines 23-57
-  - `Permission scope`: lines 58-99
-  - `Persona and internal agents`: lines 100-127
-  - `Execution and review separation`: lines 128-148
-  - `Review evidence and independence`: lines 149-172
-  - `Human decision after revision exhaustion`: lines 173-184
-  - `Rejection behavior`: lines 185-211
-  - `Connections and credentials`: lines 212-258
-  - `Provider-defined capability bundles`: lines 259-284
-  - `Permission awareness and administration`: lines 285-314
-  - `Dynamic tool creation and connection requirements`: lines 315-384
-  - `Browser-assisted service enablement`: lines 385-612
-  - `Observability requirements`: lines 613-638
-  - `Organizational knowledge boundaries`: lines 639-680
-  - `Retention and evidence lifecycle`: lines 681-706
-  - `Vertical-slice architecture principles`: lines 707-805
-  - `30B-class model operating assumptions`: lines 806-983
-  - `Initial model profiles and release gates`: lines 984-1059
-  - `Open questions`: lines 1060-1070
+  - `Autonomy and Connections Requirements`: lines 14-36
+  - `Requirement documents`: lines 18-25
+  - `Open questions`: lines 26-36
 
-### [Resume Plan](RESUME_PLAN.md)
+### [Autonomy, Permissions, and Review](autonomy-permissions-review.md)
 
-- Path: `RESUME_PLAN.md`
+- Path: `autonomy-permissions-review.md`
 - Type: `reference`
 - Review due: `2026-08-10`
 - Sections:
-  - `Resume Plan`: lines 14-89
-  - `Start here`: lines 16-28
-  - `Proven state`: lines 29-40
-  - `Immediate implementation sequence`: lines 41-60
-  - `Do not do first`: lines 61-70
-  - `First decisions still required`: lines 71-80
-  - `Validation before each handoff`: lines 81-89
+  - `Autonomy, Permissions, and Review`: lines 14-205
+  - `Status`: lines 18-23
+  - `Autonomy model`: lines 24-57
+  - `Permission scope`: lines 58-98
+  - `Persona and internal agents`: lines 99-125
+  - `Execution and review separation`: lines 126-145
+  - `Review evidence and independence`: lines 146-168
+  - `Human decision after revision exhaustion`: lines 169-179
+  - `Rejection behavior`: lines 180-205
 
-### [Scope and Non-goals](SCOPE_AND_NON_GOALS.md)
+### [Connections and Tool Packages](connections-and-tool-packages.md)
 
-- Path: `SCOPE_AND_NON_GOALS.md`
+- Path: `connections-and-tool-packages.md`
 - Type: `reference`
 - Review due: `2026-08-10`
 - Sections:
-  - `Scope and Non-goals`: lines 14-69
-  - `Existing prototype scope`: lines 16-26
-  - `Next vertical-slice scope`: lines 27-41
-  - `Explicit non-goals for the first slice`: lines 42-59
-  - `Deferred capabilities`: lines 60-69
+  - `Connections and Tool Packages`: lines 14-303
+  - `Connections and credentials`: lines 18-63
+  - `Provider-defined capability bundles`: lines 64-88
+  - `Permission awareness and administration`: lines 89-117
+  - `Dynamic tool creation and connection requirements`: lines 118-187
+  - `Browser-assisted service enablement`: lines 188-303
+
+### [High-impact Permissions and Tool Package Lifecycle](high-impact-permissions-and-package-lifecycle.md)
+
+- Path: `high-impact-permissions-and-package-lifecycle.md`
+- Type: `reference`
+- Review due: `2026-08-10`
+- Sections:
+  - `High-impact Permissions and Tool Package Lifecycle`: lines 14-129
+  - `Explicit high-impact selection and completion details`: lines 18-129
 
 ### [Implementation Handoff](implementation-handoff.md)
 
@@ -88,7 +93,7 @@
 - Type: `guide`
 - Review due: `2026-08-10`
 - Sections:
-  - `Implementation Handoff`: lines 14-461
+  - `Implementation Handoff`: lines 14-468
   - `Purpose`: lines 16-28
   - `Current position`: lines 29-51
   - `Product direction`: lines 52-65
@@ -119,4 +124,42 @@
   - `Recommended implementation order`: lines 392-412
   - `Explicitly unresolved`: lines 413-430
   - `Working preferences and decision rules`: lines 431-450
-  - `Source-of-truth map`: lines 451-461
+  - `Documentation contract status`: lines 451-457
+  - `Source-of-truth map`: lines 458-468
+
+### [Observability, Knowledge, and Retention](observability-knowledge-retention.md)
+
+- Path: `observability-knowledge-retention.md`
+- Type: `reference`
+- Review due: `2026-08-10`
+- Sections:
+  - `Observability, Knowledge, and Retention`: lines 14-108
+  - `Observability requirements`: lines 18-42
+  - `Organizational knowledge boundaries`: lines 43-83
+  - `Retention and evidence lifecycle`: lines 84-108
+
+### [Resume Plan](resume-plan.md)
+
+- Path: `resume-plan.md`
+- Type: `reference`
+- Review due: `2026-08-10`
+- Sections:
+  - `Resume Plan`: lines 14-89
+  - `Start here`: lines 16-28
+  - `Proven state`: lines 29-40
+  - `Immediate implementation sequence`: lines 41-60
+  - `Do not do first`: lines 61-70
+  - `First decisions still required`: lines 71-80
+  - `Validation before each handoff`: lines 81-89
+
+### [Scope and Non-goals](scope-and-non-goals.md)
+
+- Path: `scope-and-non-goals.md`
+- Type: `reference`
+- Review due: `2026-08-10`
+- Sections:
+  - `Scope and Non-goals`: lines 14-69
+  - `Existing prototype scope`: lines 16-26
+  - `Next vertical-slice scope`: lines 27-41
+  - `Explicit non-goals for the first slice`: lines 42-59
+  - `Deferred capabilities`: lines 60-69

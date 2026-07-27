@@ -4,7 +4,7 @@ type: reference
 status: current
 owner: repository-maintainers
 created_at: '2026-07-27'
-updated_at: '2026-07-27'
+updated_at: '2026-07-28'
 review:
   due_at: '2026-08-10'
 validity:
