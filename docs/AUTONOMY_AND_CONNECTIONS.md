@@ -461,6 +461,27 @@ constitute the user's explicit approval. The interface must avoid hidden or
 pre-submission state changes so the submitted selection set matches what the user
 last saw.
 
+After service enablement, the default completion message should remain concise,
+but the user must be able to expand a structured details view. The expanded view
+should include at least:
+
+- Connection identity, account, authentication scheme, and status
+- requesting persona and active persona grant
+- selected capability bundles
+- active API operation permissions and prohibitions
+- active browser-operation permissions and approved domains
+- browser-session status and expiry, without exposing secrets
+- generated or reused Tool Packages, versions, and validation status
+- high-impact permissions explicitly approved
+- omitted, rejected, or deferred scopes
+- audit and correlation identifiers
+- any pending takeover, recovery, or follow-up action
+
+The details view should link conceptually to the permission administration and
+tool-observability surfaces so the user can inspect, edit, revoke, or diagnose
+what was enabled. Secret values, raw cookies, tokens, passwords, and unredacted
+credential material must never be displayed in the completion details.
+
 A persona may eventually request creation of a tool when no suitable tool
 exists, but the persona is not the trusted authority for activation. Generated
 artifacts must pass deterministic platform validation before they can be used.
