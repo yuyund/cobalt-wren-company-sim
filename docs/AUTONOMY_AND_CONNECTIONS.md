@@ -819,6 +819,62 @@ exists, but the architecture must not depend on fine-tuning for basic safety or
 policy correctness. Prompt changes, model changes, and fine-tuned checkpoints
 must be versioned and auditable alongside Tool Package and policy versions.
 
+Model quality depends on a configuration graph rather than on prompts alone. The
+managed tuning surfaces include at least:
+
+- model and decoding configuration
+- role and agent decomposition
+- prompt templates and examples
+- context selection, ordering, compression, and token budgets
+- Tool Package descriptions and argument schemas
+- tool return schemas, error taxonomies, and evidence formatting
+- skills, procedures, and reusable task instructions
+- Review criteria and escalation rules
+- retry, repair, routing, and fallback policies
+- knowledge retrieval and permission-context resolution
+
+These surfaces must be versioned as independently replaceable components and
+assembled into a named runtime profile. Every execution and evaluation result
+should record the complete profile identity or a content-addressed manifest so a
+behavior can be reproduced without guessing which combination was active.
+
+Changes should be evaluated as controlled experiments against a shared corpus.
+The tooling must support changing one surface at a time, comparing complete
+profiles when interactions are unavoidable, and reporting metric deltas by
+scenario class. Promotion should require evidence that the new profile improves
+the intended failure modes without unacceptable regressions elsewhere. Ad hoc
+production edits to prompts, skills, schemas, or routing rules are prohibited.
+
+Skills should be treated as typed, versioned operational knowledge rather than
+unstructured prompt fragments. A skill should declare its purpose, applicable
+roles, required context and tools, expected output contract, preconditions,
+failure modes, examples, evaluation cases, and compatibility constraints. Skills
+may guide model behavior but cannot grant permission, expose credentials, or
+bypass platform validation.
+
+Tool responses are part of the model interface and require the same design rigor
+as tool inputs. Responses should be small, typed, stable, and action-oriented;
+separate machine-consumable facts from human display text; use canonical error
+codes; identify retryability and missing prerequisites; include provenance; and
+avoid returning large provider payloads unless specifically requested through a
+bounded evidence reference. Tool adapters should normalize provider variation so
+agents do not need provider-specific parsing strategies.
+
+Agent decomposition should be justified by measured error reduction, context
+isolation, or independent verification. More agents are not inherently more
+accurate: they can add latency, cost, information loss, and correlated mistakes.
+Each split must define ownership, input/output contracts, termination conditions,
+and a comparison against a simpler baseline. The default should be the smallest
+number of roles that meets the evaluation threshold.
+
+To preserve development velocity, the evaluation harness should support a
+configuration matrix, cached deterministic stages, replayable model boundaries,
+and targeted test selection based on changed components. A prompt-only change
+should not require live provider execution when recorded tool fixtures suffice;
+a Tool Package change should run its contract and affected end-to-end scenarios;
+a policy change should run permission and high-impact suites. Full profile tests
+remain required before release.
+
 ## Open questions
 
 The following remain intentionally unresolved:
