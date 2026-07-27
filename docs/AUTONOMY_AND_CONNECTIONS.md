@@ -65,6 +65,25 @@ explain the effect of each candidate, and let the user choose or edit one. The
 default recommendation should remain the narrowest scope that enables the
 current goal.
 
+Scope candidates must conform to a policy-system schema rather than being stored
+as free-form persona output. The core policy engine should define common fields
+such as persona, Connection, operation, effect, and conditions, while each
+provider or tool adapter may register additional typed scope dimensions. This
+keeps matching deterministic without assuming that all future services share a
+fixed global target model.
+
+A provider-defined scope schema should be declarative and versioned. It may
+define dimensions such as recipient, repository, channel, path, resource type,
+resource identifier, data classification, attachment policy, monetary limit, or
+provider-specific constraints. Each dimension should declare its type, matching
+semantics, validation rules, display metadata, and whether broader or narrower
+values can be derived safely.
+
+The persona may infer and rank candidate values, but the policy system must
+validate, normalize, compare, persist, and match them. Unknown dimensions or
+unregistered schema versions must fail closed rather than falling back to
+string comparison or permissive matching.
+
 ## Persona and internal agents
 
 The persona remains the accountable subject and permission owner. Internal
@@ -306,7 +325,7 @@ at application level.
 
 The following remain intentionally unresolved:
 
-- exact permission condition schema beyond target-level constraints
+- governance and compatibility rules for provider-defined scope schema versions
 - risk categories and which operations always require human attention
 - identity and lifecycle of dynamically created tools
 - connection revocation and permission invalidation semantics
