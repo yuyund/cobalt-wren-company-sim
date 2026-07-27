@@ -753,6 +753,36 @@ recorded design rationale. Changes to Cobalt Wren itself should be proposed only
 when the Company slice demonstrates a missing framework-level primitive rather
 than an application-specific need.
 
+Workflow-engine selection must also remain evidence-driven. The Company should not
+use Cobalt Wren Native merely because the existing prototype does, nor remove
+Cobalt Wren merely because LangGraph provides richer graph execution. The first
+vertical slice should preserve application-owned workflow contracts and compare
+at least:
+
+- LangGraph executed directly with Company-owned operational integrations
+- LangGraph wrapped by Cobalt Wren's official integration
+
+The comparison should measure implementation complexity, parallel fan-out and
+join behavior, interrupt and resume semantics, checkpoint durability, cancellation
+and retry behavior, observability fidelity, audit and run administration,
+artifact and secret integration, testability, latency, and operational coupling.
+Cobalt Wren is justified only where its cross-framework run model, projections,
+audit, controls, stores, UI, or integration boundaries remove more Company-owned
+code and risk than the wrapper and dependency introduce.
+
+LangGraph graph state and node semantics must not leak into Persona, permission,
+Tool Package, Review, knowledge, or audit domain contracts. Conversely, Cobalt
+Wren-specific workflow context must not become the application domain API. A
+thin adapter boundary should allow the selected execution arrangement to change
+without rewriting the core Company behavior.
+
+The initial architecture decision should be made after a bounded spike using the
+same fake-provider draft scenario and evaluation fixtures. If Cobalt Wren adds no
+material operational value for that slice, LangGraph may be used directly. If it
+provides useful operational capabilities, the preferred arrangement is LangGraph
+for workflow semantics and Cobalt Wren as an outer execution, observability, and
+administration layer rather than Cobalt Native as the internal graph engine.
+
 ## 30B-class model operating assumptions
 
 The system must be designed to operate reliably with an approximately 30B-class
