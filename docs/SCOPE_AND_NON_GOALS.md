@@ -1,3 +1,13 @@
+---
+title: Scope and Non-goals
+type: reference
+status: current
+created_at: '2026-07-27'
+updated_at: '2026-07-27'
+review:
+  due_at: '2026-10-25'
+---
+
 # Scope and Non-goals
 
 ## Current scope

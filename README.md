@@ -1,3 +1,13 @@
+---
+title: Cobalt Wren Company Simulation
+type: guide
+status: current
+created_at: '2026-07-27'
+updated_at: '2026-07-27'
+review:
+  due_at: '2027-01-23'
+---
+
 # Cobalt Wren Company Simulation
 
 A reference application that models a company as a set of department-level
