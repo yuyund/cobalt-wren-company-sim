@@ -875,6 +875,50 @@ a Tool Package change should run its contract and affected end-to-end scenarios;
 a policy change should run permission and high-impact suites. Full profile tests
 remain required before release.
 
+Runtime-profile optimization should be system-owned by default. The platform may
+analyze clustered failures, generate candidate changes to prompts, examples,
+skills, agent topology, tool descriptions, tool-return normalization, context
+policies, and retry or routing rules, then evaluate those candidates against the
+shared corpus without requiring a developer to hand-edit every surface.
+
+Candidate generation and production authority are separate. Automatically
+generated profiles begin inactive and must pass schema validation, security and
+policy checks, targeted evaluations, full regression suites, cost and latency
+limits, and compatibility analysis. Candidates that satisfy predeclared promotion
+criteria may be promoted automatically for low-risk profile changes. Promotion
+criteria, metric thresholds, protected scenarios, allowed change classes, and
+maximum regression budgets are deterministic policy owned by the platform, not
+self-declared by the optimizing model.
+
+Automatic promotion must be more restrictive for changes that affect permission
+interpretation, high-impact classification, secret handling, tool side effects,
+security boundaries, legal or compliance behavior, or human-confirmation rules.
+Those changes require explicit human approval unless a separately authorized,
+narrow automation policy permits a well-defined compatible migration. The
+optimizer must never weaken invariant safety gates to improve task-success
+metrics.
+
+The system should use staged rollout where practical: offline evaluation,
+shadow or replay evaluation, bounded canary traffic, then broader activation.
+Each stage must use immutable profile versions, comparable metrics, and automatic
+rollback when health, safety, quality, cost, or latency thresholds are violated.
+Rollback restores the complete prior profile rather than attempting an ad hoc
+partial reversal.
+
+Optimization must remain reproducible and auditable. Each candidate should record
+the triggering failures, proposed component diffs, generator identity and model,
+training or evaluation data references, evaluation results, promotion decision,
+rollout status, and rollback history. Production traces used for optimization
+must be redacted, access-controlled, and subject to the applicable retention and
+knowledge policies.
+
+To prevent self-reinforcing regressions, automatically generated evaluation cases
+must not replace the stable human- or policy-approved benchmark corpus. New
+failure-derived cases may extend the corpus after validation, while protected
+safety and permission cases remain immutable except through explicit governance.
+The optimizer should prefer minimal component changes and must demonstrate that a
+more complex agent topology or skill set outperforms the simpler active baseline.
+
 ## Open questions
 
 The following remain intentionally unresolved:
